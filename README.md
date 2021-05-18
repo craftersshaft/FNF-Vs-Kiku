@@ -2,7 +2,7 @@
 
 ![AppVeyor](https://img.shields.io/appveyor/build/craftersshaft/fnf-vs-kiku?label=windows%20build)
 
-![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/craftersshaft/FNF-Vs-Kiku/latest) ![GitHub repo size](https://img.shields.io/github/repo-size/craftersshaft/FNF-Vs-Kiku) ![Lines of code](https://img.shields.io/tokei/lines/github/craftersshaft/FNF-Vs-Kiku) ![Supported platforms](https://img.shields.io/badge/supported%20platforms-windows) ![GitHub all releases](https://img.shields.io/github/downloads/KadeDev/Kade-Engine/total) ![GitHub](https://img.shields.io/github/license/craftersshaft/FNF-Vs-Kiku)
+![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/craftersshaft/FNF-Vs-Kiku/latest) ![GitHub repo size](https://img.shields.io/github/repo-size/craftersshaft/FNF-Vs-Kiku) ![Lines of code](https://img.shields.io/tokei/lines/github/craftersshaft/FNF-Vs-Kiku) ![Supported platforms](https://img.shields.io/badge/supported%20platforms-windows) ![GitHub all releases](https://img.shields.io/github/downloads/craftersshaft/FNF-Vs-Kiku/total) ![GitHub](https://img.shields.io/github/license/craftersshaft/FNF-Vs-Kiku)
 
 # Friday Night Funkin': Kade Engine + Vs. Kiku
 ## Friday Night Funkin'
@@ -59,3 +59,13 @@ This game was made with love to Newgrounds and its community. Extra love to Tom 
 ### Kade Engine
 - [KadeDeveloper](https://twitter.com/KadeDeveloper) - Maintainer and lead programmer
 - [The contributors](https://github.com/KadeDev/Kade-Engine/graphs/contributors)
+
+###Vs. Kiku Mod Credits
+NES Font by CTFont
+SMB 1-1 Sprites ripped by A.J. Nitro, Sunny Cassette
+Kiku belongs to SoftBusiness/FUNNY SOFT/Nintendo (technically not their canon name but i can't find anything else but that nickname i made)
+Various N64 Game Songs from KHInsider
+Flashes used for coloring ripped with JPEXS (not the art i did i just mean the original colors)
+Kade Engine by KadeDev
+Boyfriend Soundfont by NyxTheShield or MintBreath, filename was just FNF_Boyfriend.sf2
+This does not include any direct Week 7 assets, however it does contain an edited vocal file and a custom skin for Kiku to use in that situation.
