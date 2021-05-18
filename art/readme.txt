@@ -98,3 +98,4 @@ Kiku belongs to SoftBusiness/FUNNY SOFT/Nintendo (technically not their canon na
 Various N64 Game Songs from KHInsider
 Flashes used for coloring ripped with JPEXS (not the art i did i just mean the original colors)
 Kade Engine by KadeDev
+Boyfriend Soundfont by NyxTheShield or MintBreath, filename was just FNF_Boyfriend.sf2

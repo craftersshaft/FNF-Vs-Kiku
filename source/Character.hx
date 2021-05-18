@@ -158,6 +158,34 @@ class Character extends FlxSprite
 				addOffset("singDOWN", -50, -130);
 
 				playAnim('danceRight');
+			case 'kikugh':
+				tex = Paths.getSparrowAtlas('characters/kikugh');
+				frames = tex;
+				animation.addByPrefix('singUP', 'spooky UP NOTE', 24, false);
+				animation.addByPrefix('singDOWN', 'spooky DOWN note', 24, false);
+				animation.addByPrefix('singLEFT', 'note sing left', 24, false);
+				animation.addByPrefix('singRIGHT', 'spooky sing right', 24, false);
+				animation.addByIndices('danceLeft', 'spooky dance idle', [0, 2, 6], "", 12, false);
+				animation.addByIndices('danceRight', 'spooky dance idle', [8, 10, 12, 14], "", 12, false);
+				animation.addByPrefix('singUP-alt', 'spooky UGH', 24, false);
+				animation.addByPrefix('singDOWN-alt', 'spooky DOWN note', 24, false);
+				animation.addByPrefix('singLEFT-alt', 'note sing left', 24, false);
+				animation.addByPrefix('singRIGHT-alt', 'spooky sing right', 24, false);
+				addOffset('danceLeft');
+				addOffset('danceRight');
+				addOffset('singUP-alt');
+				playAnim('danceRight');
+				
+				addOffset("singUP", -20, 26);
+				addOffset("singRIGHT", -130, -14);
+				addOffset("singLEFT", 130, -10);
+				addOffset("singDOWN", -50, -130);
+				addOffset("singRIGHT", -130, -14);
+				addOffset("singLEFT-alt", 130, -10);
+				addOffset("singDOWN-alt", -50, -130);
+				addOffset("singRIGHT-alt", -130, -14);
+				// If you're gonna cash in on the Ugh But Character Sings It trend, I can give you the vocals and instrumental.
+				// Just pretend you aren't seeing this right now because i don't want Funkin Team to slaughter me.
 			case 'mom':
 				tex = Paths.getSparrowAtlas('characters/Mom_Assets');
 				frames = tex;
@@ -608,6 +636,13 @@ class Character extends FlxSprite
 					}
 
 				case 'spooky':
+					danced = !danced;
+
+					if (danced)
+						playAnim('danceRight');
+					else
+						playAnim('danceLeft');
+				case 'kikugh':
 					danced = !danced;
 
 					if (danced)

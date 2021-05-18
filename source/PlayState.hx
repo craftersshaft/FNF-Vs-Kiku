@@ -749,6 +749,8 @@ class PlayState extends MusicBeatState
 
 			case "spooky":
 				dad.y += 200;
+			case "kikugh":
+				dad.y += 200;
 			case "monster":
 				dad.y += 100;
 			case 'monster-christmas':
