@@ -17,7 +17,7 @@
 
 HEY
 Thanks for downloadin Friday Night FUNKIN'
-If you downloaded this from any other place than ninja-muffin24.itch.io/FUNKIN
+If you downloaded the base game from any other place than ninja-muffin24.itch.io/FUNKIN
 You might be in DANGER!!! 
 
 The Itch.io release is the only official source for the desktop (PC, Mac, Linux) versions of the game!
@@ -90,3 +90,11 @@ I love Tom Fulp.
                                                                                   
 ##################################################################################
 i stole this from stamper.
+
+-- VS KIKU MOD CREDITS --
+NES Font by CTFont
+SMB 1-1 Sprites ripped by A.J. Nitro, Sunny Cassette
+Kiku belongs to SoftBusiness/FUNNY SOFT/Nintendo (technically not their canon name but i can't find anything else but that nickname i made)
+Various N64 Game Songs from KHInsider
+Flashes used for coloring ripped with JPEXS (not the art i did i just mean the original colors)
+Kade Engine by KadeDev

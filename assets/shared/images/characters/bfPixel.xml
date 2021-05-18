@@ -128,4 +128,6 @@
 	<SubTexture name="BF UP NOTE instance 10011" x="166" y="249" width="73" height="73"/>
 	<SubTexture name="BF UP NOTE instance 10012" x="166" y="249" width="73" height="73"/>
 	<SubTexture name="BF UP NOTE instance 10013" x="166" y="249" width="73" height="73"/>
+	<SubTexture name="hey0000" x="280" y="249" width="73" height="73"/>
+	<SubTexture name="hey0001" x="353" y="249" width="73" height="73"/>
 </TextureAtlas>

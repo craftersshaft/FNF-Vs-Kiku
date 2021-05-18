@@ -330,8 +330,8 @@ class PlayState extends MusicBeatState
 				];
 			case 'senpai':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('senpai/senpaiDialogue'));
-			case 'roses':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('roses/rosesDialogue'));
+			case 'rosus':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('roses/rosusDialogue'));
 			case 'thorns':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('thorns/thornsDialogue'));
 		}
@@ -353,7 +353,7 @@ class PlayState extends MusicBeatState
 				halloweenBG.antialiasing = true;
 				add(halloweenBG);
 
-				isHalloween = true;
+				isHalloween = false;
 			}
 			case 'philly': 
 					{

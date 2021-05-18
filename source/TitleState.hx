@@ -154,7 +154,7 @@ class TitleState extends MusicBeatState
 			FlxG.sound.music.fadeIn(4, 0, 0.7);
 		}
 
-		Conductor.changeBPM(102);
+		Conductor.changeBPM(158);
 		persistentUpdate = true;
 
 		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
@@ -407,12 +407,12 @@ class TitleState extends MusicBeatState
 			// credTextShit.screenCenter();
 			case 5:
 				if (Main.watermarks)
-					createCoolText(['Kade Engine', 'by']);
+					createCoolText(['Kade Engine', 'by KadeDeveloper', 'unaffiliated with', 'Nintendo']);
 				else
 					createCoolText(['In Partnership', 'with']);
 			case 7:
 				if (Main.watermarks)
-					addMoreText('KadeDeveloper');
+					addMoreText('or Newgrounds');
 				else
 				{
 					addMoreText('Newgrounds');
@@ -447,6 +447,21 @@ class TitleState extends MusicBeatState
 				addMoreText('Funkin'); // credTextShit.text += '\nFunkin';
 
 			case 16:
+			addMoreText('Vs. Kiku');
+			case 17:
+			
+			case 18:
+
+			case 19:
+			deleteCoolText();
+			case 20:
+			addMoreText('Mod Created By');			
+			case 21:
+			addMoreText('craftersshaft');
+			ngSpr.visible = true;
+			case 22:
+
+			case 23:
 				skipIntro();
 		}
 	}
