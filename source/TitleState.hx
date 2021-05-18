@@ -318,10 +318,12 @@ class TitleState extends MusicBeatState
 					returnedData[1] = data.substring(data.indexOf('-'), data.length);
 				  	if (!MainMenuState.kadeEngineVer.contains(returnedData[0].trim()) && !OutdatedSubState.leftState && MainMenuState.nightly == "")
 					{
-						trace('outdated lmao! ' + returnedData[0] + ' != ' + MainMenuState.kadeEngineVer);
-						OutdatedSubState.needVer = returnedData[0];
-						OutdatedSubState.currChanges = returnedData[1];
-						FlxG.switchState(new OutdatedSubState());
+						//trace('outdated lmao! ' + returnedData[0] + ' != ' + MainMenuState.kadeEngineVer);
+						//OutdatedSubState.needVer = returnedData[0];
+						//OutdatedSubState.currChanges = returnedData[1];
+						//FlxG.switchState(new OutdatedSubState());
+						
+						//Don't need this until Week 7 or anything that people desperately want gets added.
 					}
 					else
 					{
