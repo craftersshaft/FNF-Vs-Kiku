@@ -4,6 +4,8 @@
 
 ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/craftersshaft/FNF-Vs-Kiku/latest) ![GitHub repo size](https://img.shields.io/github/repo-size/craftersshaft/FNF-Vs-Kiku) ![Lines of code](https://img.shields.io/tokei/lines/github/craftersshaft/FNF-Vs-Kiku) ![Supported platforms](https://img.shields.io/badge/supported%20platforms-windows) ![GitHub all releases](https://img.shields.io/github/downloads/craftersshaft/FNF-Vs-Kiku/total) ![GitHub](https://img.shields.io/github/license/craftersshaft/FNF-Vs-Kiku)
 
+**VS Kiku Links:** [Appveyor](https://ci.appveyor.com/project/craftersshaft/fnf-vs-kiku)
+
 # Friday Night Funkin': Kade Engine + Vs. Kiku
 ## Friday Night Funkin'
 **Friday Night Funkin'** is a rhythm game originally made for Ludum Dare 47 "Stuck In a Loop".
