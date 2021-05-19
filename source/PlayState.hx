@@ -355,6 +355,35 @@ class PlayState extends MusicBeatState
 
 				isHalloween = false;
 			}
+			case 'warzone': 
+			{
+				curStage = 'warzone';
+				halloweenLevel = true;
+
+				var hallowTex = Paths.getSparrowAtlas('warzone','week2');
+
+				halloweenBG = new FlxSprite(-200, -100);
+				halloweenBG.frames = hallowTex;
+				halloweenBG.animation.addByPrefix('idle', 'halloweem bg0');
+				halloweenBG.animation.addByPrefix('lightning', 'halloweem bg lightning strike', 24, false);
+				halloweenBG.animation.play('idle');
+				halloweenBG.antialiasing = true;
+				add(halloweenBG);
+				halloweenBG.scale.set(1.5, 1);
+				
+				bottomBoppers = new FlxSprite(-300, 140);
+				bottomBoppers.frames = Paths.getSparrowAtlas('bottomBop','week2');
+				bottomBoppers.animation.addByPrefix('bop', 'Bottom Level Boppers', 24, false);
+				bottomBoppers.antialiasing = true;
+				bottomBoppers.scrollFactor.set(0.9, 0.9);
+				bottomBoppers.setGraphicSize(Std.int(bottomBoppers.width * 1));
+				bottomBoppers.updateHitbox();
+				if(FlxG.save.data.distractions){
+					add(bottomBoppers);
+				}
+
+				isHalloween = false;
+			}
 			case 'philly': 
 					{
 					curStage = 'philly';
