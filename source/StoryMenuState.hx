@@ -29,16 +29,18 @@ class StoryMenuState extends MusicBeatState
 	];
 	var curDifficulty:Int = 1;
 
-	public static var weekUnlocked:Array<Bool> = [true, true];
+	public static var weekUnlocked:Array<Bool> = [true, true, true];
 
 	var weekCharacters:Array<Dynamic> = [
 		['', 'bf', 'gf'],
-		['spooky', 'bf', 'gf'],
+		['', 'bf', 'gf'],
+		['', 'bf', 'gf']
 	];
 
 	var weekNames:Array<String> = [
 		"How to Play",
 		"Vs. Kiku",
+		"Vs. Rudy"
 	];
 
 	var txtWeekTitle:FlxText;

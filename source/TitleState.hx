@@ -451,7 +451,7 @@ class TitleState extends MusicBeatState
 			case 16:
 			addMoreText('Vs. Kiku');
 			case 17:
-			
+			addMoreText('AND OTHER TYPE MODS');
 			case 18:
 
 			case 19:
