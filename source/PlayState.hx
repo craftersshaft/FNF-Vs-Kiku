@@ -356,6 +356,23 @@ class PlayState extends MusicBeatState
 
 				isHalloween = true;
 			}
+			case 'rudy': 
+			{
+				curStage = 'rudy';
+				halloweenLevel = true;
+
+				var hallowTex = Paths.getSparrowAtlas('rudybg','week2');
+
+				halloweenBG = new FlxSprite(-200, -100);
+				halloweenBG.frames = hallowTex;
+				halloweenBG.animation.addByPrefix('idle', 'halloweem bg0');
+				halloweenBG.animation.addByPrefix('lightning', 'halloweem bg lightning strike', 24, false);
+				halloweenBG.animation.play('idle');
+				halloweenBG.antialiasing = true;
+				add(halloweenBG);
+
+				isHalloween = false;
+			}
 			case 'warzone': 
 			{
 				curStage = 'warzone';
@@ -780,6 +797,8 @@ class PlayState extends MusicBeatState
 			case "spooky":
 				dad.y += 200;
 			case "kikugh":
+				dad.y += 200;
+			case "rudy":
 				dad.y += 200;
 			case "monster":
 				dad.y += 100;

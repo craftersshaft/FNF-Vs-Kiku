@@ -62,7 +62,7 @@ This game was made with love to Newgrounds and its community. Extra love to Tom 
 - [KadeDeveloper](https://twitter.com/KadeDeveloper) - Maintainer and lead programmer
 - [The contributors](https://github.com/KadeDev/Kade-Engine/graphs/contributors)
 
-###Vs. Kiku Mod Credits
+###Vs. Kiku And Other Type Mods Mod Credits
 NES Font by CTFont
 SMB 1-1 Sprites ripped by A.J. Nitro, Sunny Cassette
 Kiku belongs to SoftBusiness/FUNNY SOFT/Nintendo (technically not their canon name but i can't find anything else but that nickname i made)
@@ -70,4 +70,6 @@ Various N64 Game Songs from KHInsider
 Flashes used for coloring ripped with JPEXS (not the art i did i just mean the original colors)
 Kade Engine by KadeDev
 Boyfriend Soundfont by NyxTheShield or MintBreath, filename was just FNF_Boyfriend.sf2
+Rudy created by zzzajac
+Boyfriend UTAU by GenoX
 This does not include any direct Week 7 assets, however it does contain an edited vocal file and a custom skin for Kiku to use in that situation.

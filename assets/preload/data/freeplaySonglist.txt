@@ -1,6 +1,7 @@
 Tutorial:gf:1
-Spookeez:spooky:2
-South:spooky:2
-Duel:spooky:2
-Fresh:spooky:1
-Rosus:senpai:6
+Spookeez:spooky:1
+South:spooky:1
+Duel:spooky:1
+Numa:rudy:2
+Fresh:spooky:2
+Rosus:senpai:2

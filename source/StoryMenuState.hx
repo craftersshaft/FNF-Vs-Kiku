@@ -67,12 +67,6 @@ class StoryMenuState extends MusicBeatState
 		transIn = FlxTransitionableState.defaultTransIn;
 		transOut = FlxTransitionableState.defaultTransOut;
 
-		if (FlxG.sound.music != null)
-		{
-			if (!FlxG.sound.music.playing)
-				FlxG.sound.playMusic(Paths.music('freakyMenu'));
-		}
-
 		persistentUpdate = persistentDraw = true;
 
 		scoreText = new FlxText(10, 10, 0, "SCORE: 49324858", 36);
@@ -190,7 +184,6 @@ class StoryMenuState extends MusicBeatState
 		lerpScore = Math.floor(FlxMath.lerp(lerpScore, intendedScore, 0.5));
 
 		scoreText.text = "WEEK SCORE:" + lerpScore;
-
 		txtWeekTitle.text = weekNames[curWeek].toUpperCase();
 		txtWeekTitle.x = FlxG.width - (txtWeekTitle.width + 10);
 
@@ -241,6 +234,7 @@ class StoryMenuState extends MusicBeatState
 
 		if (controls.BACK && !movedBack && !selectedWeek)
 		{
+			FlxG.sound.music.stop();
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			movedBack = true;
 			FlxG.switchState(new MainMenuState());
@@ -341,6 +335,19 @@ class StoryMenuState extends MusicBeatState
 			curWeek = 0;
 		if (curWeek < 0)
 			curWeek = weekData.length - 1;
+			
+		switch(curWeek)
+		{
+		case 0:
+		Conductor.changeBPM(158);
+		FlxG.sound.playMusic(Paths.music('freakyMenu'), 1);
+		case 1:
+		Conductor.changeBPM(110);
+		FlxG.sound.playMusic(Paths.music('WorldMap1'), 1);
+		case 2:
+		Conductor.changeBPM(180);
+		FlxG.sound.playMusic(Paths.music('WorldMap2'), 1);
+		};
 
 		var bullShit:Int = 0;
 

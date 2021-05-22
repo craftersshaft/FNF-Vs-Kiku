@@ -158,6 +158,25 @@ class Character extends FlxSprite
 				addOffset("singDOWN", -50, -130);
 
 				playAnim('danceRight');
+			case 'rudy':
+				tex = Paths.getSparrowAtlas('characters/rudyassets');
+				frames = tex;
+				animation.addByPrefix('singUP', 'spooky UP NOTE', 24, false);
+				animation.addByPrefix('singDOWN', 'spooky DOWN note', 24, false);
+				animation.addByPrefix('singLEFT', 'note sing left', 24, false);
+				animation.addByPrefix('singRIGHT', 'spooky sing right', 24, false);
+				animation.addByIndices('danceLeft', 'spooky dance idle', [0, 2, 6], "", 12, false);
+				animation.addByIndices('danceRight', 'spooky dance idle', [8, 10, 12, 14], "", 12, false);
+
+				addOffset('danceLeft');
+				addOffset('danceRight');
+
+				addOffset("singUP", -20, 26);
+				addOffset("singRIGHT", -130, -14);
+				addOffset("singLEFT", 130, -10);
+				addOffset("singDOWN", -50, -130);
+
+				playAnim('danceRight');
 			case 'kikugh':
 				tex = Paths.getSparrowAtlas('characters/kikugh');
 				frames = tex;
@@ -643,6 +662,13 @@ class Character extends FlxSprite
 					else
 						playAnim('danceLeft');
 				case 'kikugh':
+					danced = !danced;
+
+					if (danced)
+						playAnim('danceRight');
+					else
+						playAnim('danceLeft');
+				case 'rudy':
 					danced = !danced;
 
 					if (danced)

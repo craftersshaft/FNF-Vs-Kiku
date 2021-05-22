@@ -100,4 +100,6 @@ Flashes used for coloring ripped with JPEXS (not the art i did i just mean the o
 Kade Engine by KadeDev
 Boyfriend Soundfont by NyxTheShield or MintBreath, filename was just FNF_Boyfriend.sf2
 mod by craftersshaft how in the world did i forget that
+Rudy created by zzzajac
+Boyfriend UTAU by GenoX
 This does not include any direct Week 7 assets, however it does contain an edited vocal file and a custom skin for Kiku to use in that situation.
