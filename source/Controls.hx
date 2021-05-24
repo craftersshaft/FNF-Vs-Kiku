@@ -79,7 +79,6 @@ enum Control
 	PAUSE;
 	CHEAT;
 }
-
 enum KeyboardScheme
 {
 	Solo;

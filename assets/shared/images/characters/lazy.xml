@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="lazy-template.png">
+	<SubTexture name="singUP0000" x="0" y="0" width="576" height="576"/>
+	<SubTexture name="singDOWN0000" x="576" y="0" width="576" height="576"/>
+	<SubTexture name="singRIGHT0000" x="1152" y="0" width="576" height="576"/>	
+	<SubTexture name="singLEFT0000" x="0" y="576" width="576" height="576"/>
+	<SubTexture name="idle0000" x="576" y="576" width="576" height="576"/>
+	<SubTexture name="singLEFTmiss0000" x="1152" y="576" width="576" height="576"/>
+	<SubTexture name="singRIGHTmiss0000" x="0" y="1152" width="576" height="576"/>
+	<SubTexture name="singDOWNmiss0000" x="576" y="1152" width="576" height="576"/>
+	<SubTexture name="singUPmiss0000" x="1152" y="1152" width="576" height="576"/>		
+	
+	<!-- just adding these frames so that animations work -->
+	
+	<SubTexture name="singUP0001" x="0" y="0" width="576" height="576"/>
+	<SubTexture name="singDOWN0001" x="576" y="0" width="576" height="576"/>
+	<SubTexture name="singRIGHT0001" x="1152" y="0" width="576" height="576"/>	
+	<SubTexture name="singLEFT0001" x="0" y="576" width="576" height="576"/>
+	<SubTexture name="idle0001" x="576" y="576" width="576" height="576"/>
+	<SubTexture name="singLEFTmiss0001" x="1152" y="576" width="576" height="576"/>
+	<SubTexture name="singRIGHTmiss0001" x="0" y="1152" width="576" height="576"/>
+	<SubTexture name="singDOWNmiss0001" x="576" y="1152" width="576" height="576"/>
+	<SubTexture name="singUPmiss0001" x="1152" y="1152" width="576" height="576"/>		
+		
+
+</TextureAtlas>

@@ -4,23 +4,28 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.animation.FlxBaseAnimation;
 import flixel.graphics.frames.FlxAtlasFrames;
+import flixel.addons.effects.FlxSkewedSprite;
 
 using StringTools;
 
-class Character extends FlxSprite
+class Character extends FlxSkewedSprite
 {
 	public var animOffsets:Map<String, Array<Dynamic>>;
 	public var debugMode:Bool = false;
 
 	public var isPlayer:Bool = false;
 	public var curCharacter:String = 'bf';
+	public var startingX:Float = 0;
+	public var startingY:Float = 0;
 
 	public var holdTimer:Float = 0;
 
 	public function new(x:Float, y:Float, ?character:String = "bf", ?isPlayer:Bool = false)
 	{
 		super(x, y);
-
+		startingX = x;
+		startingY = y;
+		trace(startingX+" | "+startingY);
 		animOffsets = new Map<String, Array<Dynamic>>();
 		curCharacter = character;
 		this.isPlayer = isPlayer;
@@ -543,8 +548,34 @@ class Character extends FlxSprite
 				addOffset("singDOWN-alt", -30, -27);
 
 				playAnim('idle');
+			default:
+			switch(curCharacter.substring(0, 4)){
+				case 'lazy':
+				frames = Paths.getSparrowAtlasForLazy('characters/'+curCharacter);
+				animation.addByIndices('idle', 'idle', [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "", 12, false);
+				animation.addByIndices('singUP', 'singUP', [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "", 12, false);
+				animation.addByIndices('singDOWN', 'singDOWN', [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "", 12, false);
+				animation.addByIndices('singLEFT', 'singLEFT', [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "", 12, false);
+				animation.addByIndices('singRIGHT', 'singRIGHT', [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "", 12, false);
+				animation.addByIndices('singUPmiss', 'singUPmiss', [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "", 12, false);
+				animation.addByIndices('singDOWNmiss', 'singDOWNmiss', [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "", 12, false);
+				animation.addByIndices('singLEFTmiss', 'singLEFTmiss', [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "", 12, false);
+				animation.addByIndices('singRIGHTmiss', 'singRIGHTmiss', [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "", 12, false);
+				addOffset('idle');				
+				addOffset('singUP');				
+				addOffset('singDOWN');
+				addOffset('singLEFT');
+				addOffset('singRIGHT');
+				addOffset('singUPmiss');				
+				addOffset('singDOWNmiss');
+				addOffset('singLEFTmiss');
+				addOffset('singRIGHTmiss');						
+				playAnim('idle');
+				
+			}
 		}
-
+		skew.x = 0;
+		skew.y = 0;
 		dance();
 
 		if (isPlayer)
@@ -572,6 +603,9 @@ class Character extends FlxSprite
 
 	override function update(elapsed:Float)
 	{
+		
+		
+		
 		if (!curCharacter.startsWith('bf'))
 		{
 			if (animation.curAnim.name.startsWith('sing'))
@@ -588,6 +622,12 @@ class Character extends FlxSprite
 				dance();
 				holdTimer = 0;
 			}
+		}
+		
+		if (curCharacter.startsWith('lazy') && this.animation.curAnim.curFrame == 1)
+		{
+		 this.skew.x = 0;
+		 this.skew.y = 0;
 		}
 
 		switch (curCharacter)
@@ -676,15 +716,36 @@ class Character extends FlxSprite
 					else
 						playAnim('danceLeft');
 				default:
+				switch(curCharacter.substring(0, 4)){
+					case 'lazy':
 					playAnim('idle');
+					default:
+						playAnim('idle');
+				}
 			}
 		}
+	}
+	
+	public function glideToPos(xpos:Float, ypos:Float, time:Int)
+	{	
+		var timer = new haxe.Timer(time);
+		var distanceX = this.x - xpos;
+		var distanceY = this.y - xpos;
+		var glideStartX = this.x;
+		var glideStartY = this.y;
+		timer.run = function() {
+		if (!PlayState.paused){
+		this.x += (distanceX / time);
+		this.y += (distanceY / time);
+		}};
+		haxe.Timer.delay(function() { timer.stop(); }, time);
+	
 	}
 
 	public function playAnim(AnimName:String, Force:Bool = false, Reversed:Bool = false, Frame:Int = 0):Void
 	{
 		animation.play(AnimName, Force, Reversed, Frame);
-
+		var justStartedLazyAnim = 0;
 		var daOffset = animOffsets.get(AnimName);
 		if (animOffsets.exists(AnimName))
 		{
@@ -692,7 +753,8 @@ class Character extends FlxSprite
 		}
 		else
 			offset.set(0, 0);
-
+		
+		
 		if (curCharacter == 'gf')
 		{
 			if (AnimName == 'singLEFT')
@@ -709,6 +771,13 @@ class Character extends FlxSprite
 				danced = !danced;
 			}
 		}
+	}
+	
+	public function setSkew(x:Float = 0, y:Float = 0)
+	{
+		this.skew.x = x;
+		this.skew.y = y;
+	
 	}
 
 	public function addOffset(name:String, x:Float = 0, y:Float = 0)

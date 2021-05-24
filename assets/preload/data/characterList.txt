@@ -8,4 +8,4 @@ senpai-angry
 spirit
 kikugh
 rudy
-randomchance
+lazy-template

@@ -119,6 +119,11 @@ class Paths
 	{
 		return FlxAtlasFrames.fromSparrow(image(key, library), file('images/$key.xml', library));
 	}
+	
+	inline static public function getSparrowAtlasForLazy(key:String, ?library:String)
+	{
+		return FlxAtlasFrames.fromSparrow(image(key, library), file('images/lazy.xml', library));
+	}	
 
 	inline static public function getPackerAtlas(key:String, ?library:String)
 	{

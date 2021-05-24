@@ -232,7 +232,23 @@ class ModchartState
 
 	public static var luaSprites:Map<String,FlxSprite> = [];
 
+	function changeDadCharacter(id:String)
+	{				var olddadx = PlayState.dad.x;
+					var olddady = PlayState.dad.y;
+					PlayState.instance.removeObject(PlayState.dad);
+					PlayState.dad = new Character(olddadx, olddady, id);
+					PlayState.instance.addObject(PlayState.dad);
+					PlayState.instance.iconP2.animation.play(id);
+	}
 
+	function changeBoyfriendCharacter(id:String)
+	{				var oldboyfriendx = PlayState.boyfriend.x;
+					var oldboyfriendy = PlayState.boyfriend.y;
+					PlayState.instance.removeObject(PlayState.boyfriend);
+					PlayState.boyfriend = new Boyfriend(oldboyfriendx, oldboyfriendy, id);
+					PlayState.instance.addObject(PlayState.boyfriend);
+					PlayState.instance.iconP2.animation.play(id);
+	}
 
 	function makeLuaSprite(spritePath:String,toBeCalled:String, drawBehind:Bool)
 	{
@@ -349,6 +365,10 @@ class ModchartState
 				// sprites
 	
 				Lua_helper.add_callback(lua,"makeSprite", makeLuaSprite);
+				
+				Lua_helper.add_callback(lua,"changeDadCharacter", changeDadCharacter);
+
+				Lua_helper.add_callback(lua,"changeBoyfriendCharacter", changeDadCharacter);
 	
 				Lua_helper.add_callback(lua,"getProperty", getPropertyByName);
 
@@ -392,11 +412,11 @@ class ModchartState
 					return FlxG.camera.y;
 				});
 	
-				Lua_helper.add_callback(lua,"setCamZoom", function(zoomAmount:Int) {
+				Lua_helper.add_callback(lua,"setCamZoom", function(zoomAmount:Float) {
 					FlxG.camera.zoom = zoomAmount;
 				});
 	
-				Lua_helper.add_callback(lua,"setHudZoom", function(zoomAmount:Int) {
+				Lua_helper.add_callback(lua,"setHudZoom", function(zoomAmount:Float) {
 					PlayState.instance.camHUD.zoom = zoomAmount;
 				});
 	

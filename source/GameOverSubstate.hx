@@ -98,6 +98,10 @@ class GameOverSubstate extends MusicBeatSubstate
 		if (!isEnding)
 		{
 			isEnding = true;
+			if (FlxG.save.data.instakill)
+			{
+			LoadingState.loadAndSwitchState(new PlayState());
+			};
 			bf.playAnim('deathConfirm', true);
 			FlxG.sound.music.stop();
 			FlxG.sound.play(Paths.music('gameOverEnd' + stageSuffix));

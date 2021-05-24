@@ -71,6 +71,10 @@ class KadeEngineData
 		
 		if (FlxG.save.data.botplay == null)
 			FlxG.save.data.botplay = false;
+			
+		if (FlxG.save.data.instakill == null)
+			FlxG.save.data.instakill = false;
+
 
 		Conductor.recalculateTimings();
 

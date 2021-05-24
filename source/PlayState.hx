@@ -143,8 +143,8 @@ class PlayState extends MusicBeatState
 	private var generatedMusic:Bool = false;
 	private var startingSong:Bool = false;
 
-	private var iconP1:HealthIcon;
-	private var iconP2:HealthIcon;
+	public var iconP1:HealthIcon;
+	public var iconP2:HealthIcon;
 	public var camHUD:FlxCamera;
 	private var camGame:FlxCamera;
 
@@ -354,7 +354,7 @@ class PlayState extends MusicBeatState
 				halloweenBG.antialiasing = true;
 				add(halloweenBG);
 
-				isHalloween = true;
+				isHalloween = false;
 			}
 			case 'rudy': 
 			{
@@ -823,6 +823,12 @@ class PlayState extends MusicBeatState
 				dad.x -= 150;
 				dad.y += 100;
 				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
+			default:
+				switch(SONG.player2.substring(0, 4)){
+				case 'lazy':
+				dad.startingY += 175;
+				dad.y = dad.startingY;
+				}
 		}
 
 
@@ -1008,8 +1014,14 @@ class PlayState extends MusicBeatState
 		iconP1 = new HealthIcon(SONG.player1, true);
 		iconP1.y = healthBar.y - (iconP1.height / 2);
 		add(iconP1);
-
+		
+		switch(SONG.player2.substring(0, 4))
+		{
+		case 'lazy':
+		iconP2 = new HealthIcon('bf-old', false);
+		default:
 		iconP2 = new HealthIcon(SONG.player2, false);
+		}
 		iconP2.y = healthBar.y - (iconP2.height / 2);
 		add(iconP2);
 
@@ -1394,7 +1406,6 @@ class PlayState extends MusicBeatState
 			vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song));
 		else
 			vocals = new FlxSound();
-
 		FlxG.sound.list.add(vocals);
 
 		notes = new FlxTypedGroup<Note>();
@@ -1717,7 +1728,7 @@ class PlayState extends MusicBeatState
 		#end
 	}
 
-	private var paused:Bool = false;
+	public static var paused:Bool = false; //it's a mess but a necessary mess to get lazy characters working right
 	var startedCountdown:Bool = false;
 	var canPause:Bool = true;
 	var nps:Int = 0;
@@ -1730,6 +1741,35 @@ class PlayState extends MusicBeatState
 		#if !debug
 		perfectMode = false;
 		#end
+		
+		if (SONG.player2.startsWith('lazy') && dad.animation.curAnim.curFrame != 0)
+		{
+		if (dad.skew.x < 0)
+		{
+			dad.skew.x + 1;
+		}
+		if (dad.skew.x > 0)
+		{
+			dad.skew.x - 1;
+		}
+		if (dad.skew.y < 0)
+		{
+			dad.skew.y + 1;
+		}
+		if (dad.skew.y > 0)
+		{
+			dad.skew.y - 1;
+		}
+		if (dad.scale.y < 1)
+		{
+			dad.scale.y + 1;
+		}
+		if (dad.animation.curAnim.name == 'idle')
+		{
+		dad.skew.y = 0; dad.skew.x = 0;
+		}
+		
+		}
 
 		if (FlxG.save.data.botplay && FlxG.keys.justPressed.ONE)
 			camHUD.visible = !camHUD.visible;
@@ -1889,6 +1929,10 @@ class PlayState extends MusicBeatState
 		else
 			iconP1.animation.curAnim.curFrame = 0;
 
+		if (FlxG.save.data.instakill == true && health < 1)
+			health = 0;
+			
+		
 		if (healthBar.percent > 80)
 			iconP2.animation.curAnim.curFrame = 1;
 		else
@@ -2325,7 +2369,31 @@ class PlayState extends MusicBeatState
 							if (SONG.notes[Math.floor(curStep / 16)].altAnim)
 								altAnim = '-alt';
 						}
-	
+						if (SONG.player2.substring(0, 4) == 'lazy') {
+						
+						switch (Math.abs(daNote.noteData))
+						{
+							case 2:
+								dad.skew.x = 0;
+								dad.skew.y = -3;
+								dad.playAnim('singUP' + altAnim, true);
+							case 3:
+								dad.skew.x = -3;
+								dad.skew.y = 0;
+								dad.playAnim('singRIGHT' + altAnim, true);
+							case 1:
+								dad.skew.x = 0;
+								dad.skew.y = 3;
+								dad.playAnim('singDOWN' + altAnim, true);
+							case 0:
+								dad.skew.x = 3;
+								dad.skew.y = 0;
+								dad.playAnim('singLEFT' + altAnim, true);
+						}
+						
+						} else {
+						
+						
 						switch (Math.abs(daNote.noteData))
 						{
 							case 2:
@@ -2336,7 +2404,7 @@ class PlayState extends MusicBeatState
 								dad.playAnim('singDOWN' + altAnim, true);
 							case 0:
 								dad.playAnim('singLEFT' + altAnim, true);
-						}
+						}}
 						
 						cpuStrums.forEach(function(spr:FlxSprite)
 						{
@@ -2407,11 +2475,15 @@ class PlayState extends MusicBeatState
 							daNote.destroy();
 						}
 						else
-						{
-							health -= 0.075;
+						{	
+							if (FlxG.save.data.instakill){
+							
+								health = 0;}	
+							else{
+								health -= 0.075;
 							vocals.volume = 0;
 							if (theFunne)
-								noteMiss(daNote.noteData, daNote);
+								noteMiss(daNote.noteData, daNote);}
 						}
 	
 						daNote.active = false;
@@ -2600,7 +2672,11 @@ class PlayState extends MusicBeatState
 					score = -300;
 					combo = 0;
 					misses++;
+					if (FlxG.save.data.instakill){			
+						health = 0;}	
+					else{					
 					health -= 0.2;
+					}
 					ss = false;
 					shits++;
 					if (FlxG.save.data.accuracyMod == 0)
@@ -2608,7 +2684,11 @@ class PlayState extends MusicBeatState
 				case 'bad':
 					daRating = 'bad';
 					score = 0;
+					if (FlxG.save.data.instakill){			
+						health = 0;}	
+					else{					
 					health -= 0.06;
+					}
 					ss = false;
 					bads++;
 					if (FlxG.save.data.accuracyMod == 0)
@@ -3041,8 +3121,12 @@ class PlayState extends MusicBeatState
 	function noteMiss(direction:Int = 1, daNote:Note):Void
 	{
 		if (!boyfriend.stunned)
-		{
+		{		
+			if (FlxG.save.data.instakill){			
+				health = 0;}	
+			else{					
 			health -= 0.04;
+			}
 			if (combo > 5 && gf.animOffsets.exists('sad'))
 			{
 				gf.playAnim('sad');
@@ -3163,9 +3247,9 @@ class PlayState extends MusicBeatState
 
 					goodNoteHit(note, (mashing > getKeyPresses(note)));
 				}
-				else if (mashViolations > 2)
+				else if (mashViolations > 100)
 				{
-					// this is bad but fuck you
+					// no more mash violations fuck you
 					playerStrums.members[0].animation.play('static');
 					playerStrums.members[1].animation.play('static');
 					playerStrums.members[2].animation.play('static');

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="campaigntitles.png">
+	<!-- Created with Aaaaaaaaaaaaaaa please fucking work i swear to god -->
+	<!-- httpiss -->
+	<SubTexture name="week00000" x="0" y="0" width="1280" height="400"/>
+	<SubTexture name="week10000" x="0" y="400" width="1280" height="400"/>
+</TextureAtlas>
