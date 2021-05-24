@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="lazy-template.png">
+<TextureAtlas imagePath="lazy.png">
 	<SubTexture name="singUP0000" x="0" y="0" width="576" height="576"/>
 	<SubTexture name="singDOWN0000" x="576" y="0" width="576" height="576"/>
 	<SubTexture name="singRIGHT0000" x="1152" y="0" width="576" height="576"/>	
