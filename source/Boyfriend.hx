@@ -14,6 +14,10 @@ class Boyfriend extends Character
 	public function new(x:Float, y:Float, ?char:String = 'bf')
 	{
 		super(x, y, char, true);
+		switch(char.substring(0, 4)){
+			case 'lazy':
+			this.y -= 175;
+				}
 	}
 
 	override function update(elapsed:Float)

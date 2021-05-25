@@ -27,6 +27,8 @@ enum abstract Action(String) to String from String
 	var RIGHT_R = "right-release";
 	var DOWN_R = "down-release";
 	var ACCEPT = "accept";
+	var ACCEPT_P = "accept-press";
+	var ACCEPT_R = "accept-release";
 	var BACK = "back";
 	var PAUSE = "pause";
 	var RESET = "reset";
@@ -49,6 +51,8 @@ abstract Action(String) to String from String
 	var RIGHT_R = "right-release";
 	var DOWN_R = "down-release";
 	var ACCEPT = "accept";
+	var ACCEPT_P = "accept-press";
+	var ACCEPT_R = "accept-release";
 	var BACK = "back";
 	var PAUSE = "pause";
 	var RESET = "reset";
@@ -106,6 +110,8 @@ class Controls extends FlxActionSet
 	var _rightR = new FlxActionDigital(Action.RIGHT_R);
 	var _downR = new FlxActionDigital(Action.DOWN_R);
 	var _accept = new FlxActionDigital(Action.ACCEPT);
+	var _acceptP = new FlxActionDigital(Action.ACCEPT_P);
+	var _acceptR = new FlxActionDigital(Action.ACCEPT_R);
 	var _back = new FlxActionDigital(Action.BACK);
 	var _pause = new FlxActionDigital(Action.PAUSE);
 	var _reset = new FlxActionDigital(Action.RESET);
@@ -185,6 +191,16 @@ class Controls extends FlxActionSet
 	inline function get_ACCEPT()
 		return _accept.check();
 
+	public var ACCEPT_P(get, never):Bool;
+
+	inline function get_ACCEPT_P()
+		return _acceptP.check();
+		
+	public var ACCEPT_R(get, never):Bool;
+
+	inline function get_ACCEPT_R()
+		return _acceptR.check();
+
 	public var BACK(get, never):Bool;
 
 	inline function get_BACK()
@@ -223,6 +239,8 @@ class Controls extends FlxActionSet
 		add(_rightR);
 		add(_downR);
 		add(_accept);
+		add(_acceptP);
+		add(_acceptR);
 		add(_back);
 		add(_pause);
 		add(_reset);
@@ -251,6 +269,8 @@ class Controls extends FlxActionSet
 		add(_rightR);
 		add(_downR);
 		add(_accept);
+		add(_acceptP);
+		add(_acceptR);
 		add(_back);
 		add(_pause);
 		add(_reset);

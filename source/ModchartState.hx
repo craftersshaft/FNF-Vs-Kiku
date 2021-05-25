@@ -328,6 +328,7 @@ class ModchartState
 				// get some fukin globals up in here bois
 	
 				setVar("difficulty", PlayState.storyDifficulty);
+				setVar("health", PlayState.instance.health);
 				setVar("bpm", Conductor.bpm);
 				setVar("scrollspeed", FlxG.save.data.scrollSpeed != 1 ? FlxG.save.data.scrollSpeed : PlayState.SONG.speed);
 				setVar("fpsCap", FlxG.save.data.fpsCap);
@@ -368,7 +369,7 @@ class ModchartState
 				
 				Lua_helper.add_callback(lua,"changeDadCharacter", changeDadCharacter);
 
-				Lua_helper.add_callback(lua,"changeBoyfriendCharacter", changeDadCharacter);
+				Lua_helper.add_callback(lua,"changeBoyfriendCharacter", changeBoyfriendCharacter);
 	
 				Lua_helper.add_callback(lua,"getProperty", getPropertyByName);
 
@@ -384,6 +385,10 @@ class ModchartState
 	
 				Lua_helper.add_callback(lua,"setHudAngle", function (x:Float) {
 					PlayState.instance.camHUD.angle = x;
+				});
+				
+				Lua_helper.add_callback(lua,"setHealth", function (heal:Float) {
+					PlayState.instance.health = heal;
 				});
 
 				Lua_helper.add_callback(lua,"setHudPosition", function (x:Int, y:Int) {
@@ -418,6 +423,13 @@ class ModchartState
 	
 				Lua_helper.add_callback(lua,"setHudZoom", function(zoomAmount:Float) {
 					PlayState.instance.camHUD.zoom = zoomAmount;
+				});
+	
+				// strumline
+
+				Lua_helper.add_callback(lua, "setStrumlineY", function(y:Float)
+				{
+					PlayState.instance.strumLine.y = y;
 				});
 	
 				// actors
@@ -532,7 +544,21 @@ class ModchartState
 				Lua_helper.add_callback(lua,"setActorScale", function(scale:Float,id:String) {
 					getActorByName(id).setGraphicSize(Std.int(getActorByName(id).width * scale));
 				});
+				
+				Lua_helper.add_callback(lua, "setActorScaleXY", function(scaleX:Float, scaleY:Float, id:String)
+				{
+					getActorByName(id).setGraphicSize(Std.int(getActorByName(id).width * scaleX), Std.int(getActorByName(id).height * scaleY));
+				});
 	
+				Lua_helper.add_callback(lua, "setActorFlipX", function(flip:Bool, id:String)
+				{
+					getActorByName(id).flipX = flip;
+				});
+
+				Lua_helper.add_callback(lua, "setActorFlipY", function(flip:Bool, id:String)
+				{
+					getActorByName(id).flipY = flip;
+				});
 	
 				Lua_helper.add_callback(lua,"getActorWidth", function (id:String) {
 					return getActorByName(id).width;

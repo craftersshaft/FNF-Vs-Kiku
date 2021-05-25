@@ -125,7 +125,7 @@ class PlayState extends MusicBeatState
 	private var curSong:String = "";
 
 	private var gfSpeed:Int = 1;
-	private var health:Float = 1;
+	public var health:Float = 1;
 	private var combo:Int = 0;
 	public static var misses:Int = 0;
 	private var accuracy:Float = 0.00;
@@ -1923,7 +1923,7 @@ class PlayState extends MusicBeatState
 
 		if (health > 2)
 			health = 2;
-
+			if (executeModchart && luaModchart != null){luaModchart.setVar('health', health);};
 		if (healthBar.percent < 20)
 			iconP1.animation.curAnim.curFrame = 1;
 		else
@@ -2481,6 +2481,7 @@ class PlayState extends MusicBeatState
 								health = 0;}	
 							else{
 								health -= 0.075;
+								if (executeModchart && luaModchart != null){luaModchart.setVar('health', health);};
 							vocals.volume = 0;
 							if (theFunne)
 								noteMiss(daNote.noteData, daNote);}
@@ -2676,6 +2677,7 @@ class PlayState extends MusicBeatState
 						health = 0;}	
 					else{					
 					health -= 0.2;
+					if (executeModchart && luaModchart != null){luaModchart.setVar('health', health);};
 					}
 					ss = false;
 					shits++;
@@ -2688,6 +2690,7 @@ class PlayState extends MusicBeatState
 						health = 0;}	
 					else{					
 					health -= 0.06;
+					if (executeModchart && luaModchart != null){luaModchart.setVar('health', health);};
 					}
 					ss = false;
 					bads++;
@@ -2700,11 +2703,13 @@ class PlayState extends MusicBeatState
 					goods++;
 					if (health < 2)
 						health += 0.04;
+						if (executeModchart && luaModchart != null){luaModchart.setVar('health', health);};
 					if (FlxG.save.data.accuracyMod == 0)
 						totalNotesHit += 0.75;
 				case 'sick':
 					if (health < 2)
 						health += 0.1;
+						if (executeModchart && luaModchart != null){luaModchart.setVar('health', health);};
 					if (FlxG.save.data.accuracyMod == 0)
 						totalNotesHit += 1;
 					sicks++;
@@ -2950,6 +2955,12 @@ class PlayState extends MusicBeatState
 					controls.UP_R,
 					controls.RIGHT_R
 				];
+				if (luaModchart != null){
+				if (controls.LEFT_P){luaModchart.executeState('keyPressed',["left"]);};
+				if (controls.DOWN_P){luaModchart.executeState('keyPressed',["down"]);};
+				if (controls.UP_P){luaModchart.executeState('keyPressed',["up"]);};
+				if (controls.RIGHT_P){luaModchart.executeState('keyPressed',["right"]);};
+				};
 		 
 				// Prevent player input if botplay is on
 				if(FlxG.save.data.botplay)
@@ -3126,6 +3137,7 @@ class PlayState extends MusicBeatState
 				health = 0;}	
 			else{					
 			health -= 0.04;
+			if (executeModchart && luaModchart != null){luaModchart.setVar('health', health);};
 			}
 			if (combo > 5 && gf.animOffsets.exists('sad'))
 			{
