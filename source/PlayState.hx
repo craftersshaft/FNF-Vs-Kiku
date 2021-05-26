@@ -1925,7 +1925,9 @@ class PlayState extends MusicBeatState
 
 		if (health > 2)
 			health = 2;
+			#if windows
 			if (executeModchart && luaModchart != null){luaModchart.setVar('health', health);};
+			#end
 		if (healthBar.percent < 20)
 			iconP1.animation.curAnim.curFrame = 1;
 		else
