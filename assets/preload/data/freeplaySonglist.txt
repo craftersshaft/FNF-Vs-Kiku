@@ -1,6 +1,6 @@
 Tutorial:gf:1
 Spookeez:spooky:1
-South:spooky:1
+Starpower:spooky:1
 Duel:spooky:1
 Numa:rudy:2
 Fresh:spooky:2

@@ -344,7 +344,7 @@ class PlayState extends MusicBeatState
 				curStage = 'spooky';
 				halloweenLevel = true;
 
-				var hallowTex = Paths.getSparrowAtlas('halloween_bg','week2');
+				var hallowTex = Paths.getSparrowAtlas('kikubg','week2');
 
 				halloweenBG = new FlxSprite(-200, -100);
 				halloweenBG.frames = hallowTex;
@@ -353,6 +353,8 @@ class PlayState extends MusicBeatState
 				halloweenBG.animation.play('idle');
 				halloweenBG.antialiasing = true;
 				add(halloweenBG);
+				camGame.bgColor = 0x33CCFF;
+				
 
 				isHalloween = false;
 			}
