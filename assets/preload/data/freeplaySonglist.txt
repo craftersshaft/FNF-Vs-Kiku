@@ -4,5 +4,6 @@ Starpower:spooky:1
 Duel:spooky:1
 Numa:rudy:2
 Nyan:rudy:2
-Fresh:spooky:3
-Rosus:senpai:3
+Tastetest:sour:3
+Fresh:spooky:4
+Rosus:senpai:4

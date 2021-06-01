@@ -4,9 +4,9 @@
 
 ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/craftersshaft/FNF-Vs-Kiku/latest) ![GitHub repo size](https://img.shields.io/github/repo-size/craftersshaft/FNF-Vs-Kiku) ![Lines of code](https://img.shields.io/tokei/lines/github/craftersshaft/FNF-Vs-Kiku) ![Supported platforms](https://img.shields.io/badge/supported%20platforms-windows) ![GitHub all releases](https://img.shields.io/github/downloads/craftersshaft/FNF-Vs-Kiku/total) ![GitHub](https://img.shields.io/github/license/craftersshaft/FNF-Vs-Kiku)
 
-**VS Kiku Links:** [Appveyor](https://ci.appveyor.com/project/craftersshaft/fnf-vs-kiku)
+**VS Kiku & Other Type Mods Links:** [Appveyor](https://ci.appveyor.com/project/craftersshaft/fnf-vs-kiku)
 
-# Friday Night Funkin': Kade Engine + Vs. Kiku
+# Friday Night Funkin': Kade Engine + Vs. Kiku & Other Type Mods 
 ## Friday Night Funkin'
 **Friday Night Funkin'** is a rhythm game originally made for Ludum Dare 47 "Stuck In a Loop".
 
@@ -62,7 +62,7 @@ This game was made with love to Newgrounds and its community. Extra love to Tom 
 - [KadeDeveloper](https://twitter.com/KadeDeveloper) - Maintainer and lead programmer
 - [The contributors](https://github.com/KadeDev/Kade-Engine/graphs/contributors)
 
-###Vs. Kiku And Other Type Mods Mod Credits
+###Vs. Kiku & Other Type Mods Mod Credits
 - NES Font by CTFont
 - SMB 1-1 Sprites ripped by A.J. Nitro, Sunny Cassette
 - Kiku belongs to SoftBusiness/FUNNY SOFT/Nintendo (technically not their canon name but i can't find anything else but that nickname i made)
@@ -73,4 +73,5 @@ This game was made with love to Newgrounds and its community. Extra love to Tom 
 - Rudy created by zzzajac
 - Boyfriend UTAU by GenoX
 - SMW Title Font by BmatSantos
+- You can use/remix this mod's songs/characters without permission, but don't claim as your own.
 - This does not include any direct Week 7 assets, however it does contain an edited vocal file and a custom skin for Kiku to use in that situation.

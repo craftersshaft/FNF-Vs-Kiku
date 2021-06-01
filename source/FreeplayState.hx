@@ -202,6 +202,9 @@ class FreeplayState extends MusicBeatState
 
 		if (accepted)
 		{
+			if (songs[curSelected].songName == 'Rosus') {
+			throw new haxe.Exception('Nope.');
+			} else {
 			var poop:String = Highscore.formatSong(songs[curSelected].songName.toLowerCase(), curDifficulty);
 
 			trace(poop);
@@ -212,6 +215,7 @@ class FreeplayState extends MusicBeatState
 			PlayState.storyWeek = songs[curSelected].week;
 			trace('CUR WEEK' + PlayState.storyWeek);
 			LoadingState.loadAndSwitchState(new PlayState());
+			}
 		}
 	}
 

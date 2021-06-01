@@ -331,8 +331,8 @@ class PlayState extends MusicBeatState
 				];
 			case 'senpai':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('senpai/senpaiDialogue'));
-			case 'roses':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('roses/rosesDialogue'));
+			case 'rosus':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('rosus/rosusDialogue'));
 			case 'thorns':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('thorns/thornsDialogue'));
 		}
@@ -382,7 +382,7 @@ class PlayState extends MusicBeatState
 
 				var hallowTex = Paths.getSparrowAtlas('sourbg','week3');
 
-				halloweenBG = new FlxSprite(-200, -100);
+				halloweenBG = new FlxSprite(-225, -100);
 				halloweenBG.frames = hallowTex;
 				halloweenBG.animation.addByPrefix('idle', 'halloweem bg', 20, true);
 				halloweenBG.animation.play('idle');
@@ -824,9 +824,10 @@ class PlayState extends MusicBeatState
 				dad.y += 130;
 			case 'dad':
 				camPos.x += 400;
-			case 'pico':
-				camPos.x += 600;
-				dad.y += 300;
+			case 'sour':
+				camPos.x += 400;
+				dad.x -= 47;
+				dad.y += 81;
 			case 'parents-christmas':
 				dad.x -= 500;
 			case 'senpai':
@@ -3536,6 +3537,14 @@ class PlayState extends MusicBeatState
 		}
 		#end
 
+		if (curSong == 'Tutorial' && dad.curCharacter == 'gf') {
+			if (curBeat % 2 == 1 && dad.animOffsets.exists('danceLeft'))
+				dad.playAnim('danceLeft');
+			if (curBeat % 2 == 0 && dad.animOffsets.exists('danceRight'))
+				dad.playAnim('danceRight');
+		}
+
+
 		if (SONG.notes[Math.floor(curStep / 16)] != null)
 		{
 			if (SONG.notes[Math.floor(curStep / 16)].changeBPM)
@@ -3547,7 +3556,7 @@ class PlayState extends MusicBeatState
 			// Conductor.changeBPM(SONG.bpm);
 
 			// Dad doesnt interupt his own notes
-			if (SONG.notes[Math.floor(curStep / 16)].mustHitSection)
+			if (SONG.notes[Math.floor(curStep / 16)].mustHitSection && dad.curCharacter != 'gf')
 				dad.dance();
 		}
 		// FlxG.log.add('change bpm' + SONG.notes[Std.int(curStep / 16)].changeBPM);

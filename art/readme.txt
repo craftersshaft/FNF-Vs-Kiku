@@ -91,7 +91,7 @@ I love Tom Fulp.
 ##################################################################################
 i stole this from stamper.
 
--- VS KIKU MOD CREDITS --
+-- VS KIKU AND OTHER TYPE MODS CREDITS --
 NES Font by CTFont
 SMB 1-1 Sprites ripped by A.J. Nitro, Sunny Cassette
 Kiku belongs to SoftBusiness/FUNNY SOFT/Nintendo (technically not their canon name but i can't find anything else but that nickname i made)
@@ -103,4 +103,5 @@ mod by craftersshaft how in the world did i forget that
 Rudy created by zzzajac
 Boyfriend UTAU by GenoX
 SMW Title Font by BmatSantos
+You can use/remix this mod's songs/characters without permission, but don't claim as your own.
 This does not include any direct Week 7 assets, however it does contain an edited vocal file and a custom skin for Kiku to use in that situation.

@@ -279,8 +279,8 @@ class Character extends FlxSkewedSprite
 				addOffset("singLEFT", -30);
 				addOffset("singDOWN", -40, -94);
 				playAnim('idle');
-			case 'pico':
-				tex = Paths.getSparrowAtlas('characters/Pico_FNF_assetss');
+			case 'sour':
+				tex = Paths.getSparrowAtlas('characters/sour');
 				frames = tex;
 				animation.addByPrefix('idle', "Pico Idle Dance", 24);
 				animation.addByPrefix('singUP', 'pico Up note0', 24, false);
@@ -289,30 +289,19 @@ class Character extends FlxSkewedSprite
 				{
 					animation.addByPrefix('singLEFT', 'Pico NOTE LEFT0', 24, false);
 					animation.addByPrefix('singRIGHT', 'Pico Note Right0', 24, false);
-					animation.addByPrefix('singRIGHTmiss', 'Pico Note Right Miss', 24, false);
-					animation.addByPrefix('singLEFTmiss', 'Pico NOTE LEFT miss', 24, false);
 				}
 				else
 				{
 					// Need to be flipped! REDO THIS LATER!
 					animation.addByPrefix('singLEFT', 'Pico Note Right0', 24, false);
 					animation.addByPrefix('singRIGHT', 'Pico NOTE LEFT0', 24, false);
-					animation.addByPrefix('singRIGHTmiss', 'Pico NOTE LEFT miss', 24, false);
-					animation.addByPrefix('singLEFTmiss', 'Pico Note Right Miss', 24, false);
 				}
-
-				animation.addByPrefix('singUPmiss', 'pico Up note miss', 24);
-				animation.addByPrefix('singDOWNmiss', 'Pico Down Note MISS', 24);
-
+				
 				addOffset('idle');
-				addOffset("singUP", -29, 27);
-				addOffset("singRIGHT", -68, -7);
-				addOffset("singLEFT", 65, 9);
-				addOffset("singDOWN", 200, -70);
-				addOffset("singUPmiss", -19, 67);
-				addOffset("singRIGHTmiss", -60, 41);
-				addOffset("singLEFTmiss", 62, 64);
-				addOffset("singDOWNmiss", 210, -28);
+				addOffset("singUP", 47, 12);
+				addOffset("singRIGHT", 26, 0);
+				addOffset("singLEFT", -12, 5);
+				addOffset("singDOWN", 38, -25);
 
 				playAnim('idle');
 
