@@ -375,6 +375,22 @@ class PlayState extends MusicBeatState
 
 				isHalloween = false;
 			}
+			case 'factory': 
+			{
+				curStage = 'factory';
+				halloweenLevel = true;
+
+				var hallowTex = Paths.getSparrowAtlas('sourbg','week3');
+
+				halloweenBG = new FlxSprite(-200, -100);
+				halloweenBG.frames = hallowTex;
+				halloweenBG.animation.addByPrefix('idle', 'halloweem bg', 20, true);
+				halloweenBG.animation.play('idle');
+				halloweenBG.antialiasing = true;
+				add(halloweenBG);
+
+				isHalloween = false;
+			}
 			case 'warzone': 
 			{
 				curStage = 'warzone';
@@ -2975,6 +2991,7 @@ class PlayState extends MusicBeatState
 				if (controls.DOWN_P){luaModchart.executeState('keyPressed',["down"]);};
 				if (controls.UP_P){luaModchart.executeState('keyPressed',["up"]);};
 				if (controls.RIGHT_P){luaModchart.executeState('keyPressed',["right"]);};
+				if (controls.ACCEPT){luaModchart.executeState('keyPressed',["accept"]);};
 				};
 				#end
 				// Prevent player input if botplay is on
@@ -3310,7 +3327,7 @@ class PlayState extends MusicBeatState
 				if (!resetMashViolation && mashViolations >= 1)
 					mashViolations--;
 
-				if (mashViolations < 0)
+				if (mashViolations > 0)
 					mashViolations = 0;
 
 				if (!note.wasGoodHit)

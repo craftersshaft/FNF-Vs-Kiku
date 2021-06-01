@@ -146,7 +146,6 @@ Kade Engine provides a list of global variables to be used in the lua scripting 
 |	  scrollSpeed	   |  Int  |				   The current scrollspeed					  |
 |	  	mustHit		   | Bool  |  		If the current section is a must hit section		  |
 |	  strumLineY	   | Float |  			The current Strum Line Y Position				  |
-|       health         | Float |                 The current health of the player             |
 
 ## Functions
 
@@ -409,6 +408,19 @@ Returns the width for the sprite id
 
 Returns the height for the sprite id
 
+
+##### changeBoyfriendCharacter(string id)
+
+Changes the Boyfriend sprite to another character
+
+##### changeDadCharacter(string id)
+
+Changes the Dad sprite to another character
+
+##### playActorAnimation(string/int id, string anim)
+
+Plays an animation on a sprite
+
 ### Tweens
 
 *Note, On Complete functions are based by the function name (and they also well get called when the tween completes)*
@@ -441,7 +453,6 @@ Smoothly fade out to an alpha
 
 
 
-
 ### Window & Screen
 
 ##### getWindowX()
@@ -467,11 +478,3 @@ Sets the window's position
 ##### resizeWindow(int width, int height)
 
 Resizes the window
-
-
-### Misc
-
-##### setHealth(float heal)
-
-Sets the player's health
-

@@ -1,7 +1,8 @@
 Tutorial:gf:1
-Spookeez:spooky:1
+Fami:spooky:1
 Starpower:spooky:1
 Duel:spooky:1
 Numa:rudy:2
-Fresh:spooky:2
-Rosus:senpai:2
+Nyan:rudy:2
+Fresh:spooky:3
+Rosus:senpai:3
