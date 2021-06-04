@@ -144,6 +144,27 @@ class InstakillOption extends Option
 	}
 }
 
+class ClassicSkinOption extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		FlxG.save.data.classicskin = !FlxG.save.data.classicskin;
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Classic Skins " + (!FlxG.save.data.classicskin ? "off" : "on");
+	}
+}
+
 class GhostTapOption extends Option
 {
 	public function new(desc:String)

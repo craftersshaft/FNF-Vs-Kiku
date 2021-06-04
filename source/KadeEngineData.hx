@@ -74,6 +74,9 @@ class KadeEngineData
 			
 		if (FlxG.save.data.instakill == null)
 			FlxG.save.data.instakill = false;
+			
+		if (FlxG.save.data.classicskin == null)
+			FlxG.save.data.classicskin = false;
 
 
 		Conductor.recalculateTimings();

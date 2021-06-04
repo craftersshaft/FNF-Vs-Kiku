@@ -32,6 +32,19 @@ class Character extends FlxSkewedSprite
 
 		var tex:FlxAtlasFrames;
 		antialiasing = true;
+		
+		switch (curCharacter)
+		{
+			case 'spooky':
+			if (FlxG.save.data.classicskin){
+			 curCharacter = 'kiku-classic';
+			};
+			case 'rudy':
+			if (FlxG.save.data.classicskin){
+			 curCharacter = 'rudy-classic';
+			};
+		
+		}
 
 		switch (curCharacter)
 		{
@@ -145,7 +158,24 @@ class Character extends FlxSkewedSprite
 
 				playAnim('idle');
 			case 'spooky':
-				tex = Paths.getSparrowAtlas('characters/spooky_kids_assets');
+				tex = Paths.getSparrowAtlas('characters/kiku');
+				frames = tex;
+				animation.addByPrefix('singUP', 'spooky UP NOTE', 24, false);
+				animation.addByPrefix('singDOWN', 'spooky DOWN note', 24, false);
+				animation.addByPrefix('singLEFT', 'note sing left', 24, false);
+				animation.addByPrefix('singRIGHT', 'spooky sing right', 24, false);
+				animation.addByPrefix('idle', 'spooky dance idle', 12, false);
+
+				addOffset('idle');
+
+				addOffset("singUP", -32, 6);
+				addOffset("singRIGHT", 18, -10);
+				addOffset("singLEFT", 82, -21);
+				addOffset("singDOWN", 27, -116);
+
+				playAnim('idle');
+			case 'kiku-classic':
+				tex = Paths.getSparrowAtlas('characters/kikuclassic');
 				frames = tex;
 				animation.addByPrefix('singUP', 'spooky UP NOTE', 24, false);
 				animation.addByPrefix('singDOWN', 'spooky DOWN note', 24, false);
@@ -172,6 +202,26 @@ class Character extends FlxSkewedSprite
 				animation.addByPrefix('singRIGHT', 'spooky sing right', 24, false);
 				animation.addByIndices('danceLeft', 'spooky dance idle', [0, 2, 6], "", 12, false);
 				animation.addByIndices('danceRight', 'spooky dance idle', [8, 10, 12, 14], "", 12, false);
+
+				addOffset('danceLeft');
+				addOffset('danceRight');
+
+				addOffset("singUP", -20, 26);
+				addOffset("singRIGHT", -130, -14);
+				addOffset("singLEFT", 130, -10);
+				addOffset("singDOWN", -50, -130);
+
+				playAnim('danceRight');
+			case 'rudy-classic':
+				tex = Paths.getSparrowAtlas('characters/rudyassetsclassic');
+				frames = tex;
+				animation.addByPrefix('singUP', 'spooky UP NOTE', 24, false);
+				animation.addByPrefix('singDOWN', 'spooky DOWN note', 24, false);
+				animation.addByPrefix('singLEFT', 'note sing left', 24, false);
+				animation.addByPrefix('singRIGHT', 'spooky sing right', 24, false);
+				animation.addByIndices('danceLeft', 'spooky dance idle', [0, 2, 6], "", 12, false);
+				animation.addByIndices('danceRight', 'spooky dance idle', [8, 10, 12, 14], "", 12, false);
+				animation.addByPrefix('idle', 'spooky dance idle', 24, false);
 
 				addOffset('danceLeft');
 				addOffset('danceRight');
@@ -682,8 +732,7 @@ class Character extends FlxSkewedSprite
 						else
 							playAnim('danceLeft');
 					}
-
-				case 'spooky':
+				case 'kiku-classic':
 					danced = !danced;
 
 					if (danced)
@@ -698,6 +747,13 @@ class Character extends FlxSkewedSprite
 					else
 						playAnim('danceLeft');
 				case 'rudy':
+					danced = !danced;
+
+					if (danced)
+						playAnim('danceRight');
+					else
+						playAnim('danceLeft');
+				case 'rudy-classic':
 					danced = !danced;
 
 					if (danced)

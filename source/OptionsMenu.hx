@@ -42,8 +42,10 @@ class OptionsMenu extends MusicBeatState
 			new AccuracyOption("Display accuracy information."),
 			new NPSDisplayOption("Shows your current Notes Per Second."),
 			new SongPositionOption("Show the songs current position (as a bar)"),
+			new ClassicSkinOption("Toggles if Kiku and Rudy use their first designs.")
 			#else
 			new DistractionsAndEffectsOption("Toggle stage distractions that can hinder your gameplay.")
+			new ClassicSkinOption("Toggles if Kiku and Rudy use their first designs.")
 			#end
 		]),
 		
