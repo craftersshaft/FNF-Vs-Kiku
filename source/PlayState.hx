@@ -268,6 +268,12 @@ class PlayState extends MusicBeatState
 				iconRPC = 'monster';
 			case 'mom-car':
 				iconRPC = 'mom';
+			case 'kiku-classic':
+				iconRPC = 'spooky';
+			case 'rudy-classic':
+				iconRPC = 'rudy';
+			case 'jokesour':
+				iconRPC = 'sour';
 		}
 
 		// String that contains the mode defined here so it isn't necessary to call changePresence for each mode
@@ -383,6 +389,22 @@ class PlayState extends MusicBeatState
 				var hallowTex = Paths.getSparrowAtlas('sourbg','week3');
 
 				halloweenBG = new FlxSprite(-225, -100);
+				halloweenBG.frames = hallowTex;
+				halloweenBG.animation.addByPrefix('idle', 'halloweem bg', 20, true);
+				halloweenBG.animation.play('idle');
+				halloweenBG.antialiasing = true;
+				add(halloweenBG);
+
+				isHalloween = false;
+			}
+			case 'jokeplains': 
+			{
+				curStage = 'jokeplains';
+				halloweenLevel = true;
+
+				var hallowTex = Paths.getSparrowAtlas('jokesourbg','week3');
+
+				halloweenBG = new FlxSprite(-200, -100);
 				halloweenBG.frames = hallowTex;
 				halloweenBG.animation.addByPrefix('idle', 'halloweem bg', 20, true);
 				halloweenBG.animation.play('idle');
@@ -826,6 +848,10 @@ class PlayState extends MusicBeatState
 			case 'dad':
 				camPos.x += 400;
 			case 'sour':
+				camPos.x += 400;
+				dad.x -= 47;
+				dad.y += 81;
+			case 'jokesour':
 				camPos.x += 400;
 				dad.x -= 47;
 				dad.y += 81;

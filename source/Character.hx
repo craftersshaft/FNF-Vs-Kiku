@@ -357,6 +357,34 @@ class Character extends FlxSkewedSprite
 
 				flipX = true;
 
+			case 'jokesour':
+				tex = Paths.getSparrowAtlas('characters/jokesour');
+				frames = tex;
+				animation.addByPrefix('idle', "Pico Idle Dance", 24);
+				animation.addByPrefix('singUP', 'pico Up note0', 24, false);
+				animation.addByPrefix('singDOWN', 'Pico Down Note0', 24, false);
+				if (isPlayer)
+				{
+					animation.addByPrefix('singLEFT', 'Pico NOTE LEFT0', 24, false);
+					animation.addByPrefix('singRIGHT', 'Pico Note Right0', 24, false);
+				}
+				else
+				{
+					// Need to be flipped! REDO THIS LATER!
+					animation.addByPrefix('singLEFT', 'Pico Note Right0', 24, false);
+					animation.addByPrefix('singRIGHT', 'Pico NOTE LEFT0', 24, false);
+				}
+				
+				addOffset('idle');
+				addOffset("singUP", 47, 12);
+				addOffset("singRIGHT", 26, 0);
+				addOffset("singLEFT", -12, 5);
+				addOffset("singDOWN", 38, -25);
+
+				playAnim('idle');
+
+				flipX = true;
+
 			case 'bf':
 				var tex = Paths.getSparrowAtlas('characters/BOYFRIEND');
 				frames = tex;
