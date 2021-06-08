@@ -5,5 +5,6 @@ Duel:spooky:1
 Numa:rudy:2
 Nyan:rudy:2
 Tastetest:sour:3
+Middle:sour:3
 Fresh:spooky:4
 Rosus:senpai:4
