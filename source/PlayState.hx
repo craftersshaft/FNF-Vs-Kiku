@@ -3129,12 +3129,10 @@ class PlayState extends MusicBeatState
 					{
 						if (mashViolations > 4)
 						{
-							trace('mash violations ' + mashViolations);
-							scoreTxt.color = FlxColor.RED;
-							noteMiss(0,null);
+							mashViolations = -1;
 						}
 						else
-							mashViolations++;
+							mashViolations--;
 					}
 
 				}
