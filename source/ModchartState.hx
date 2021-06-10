@@ -17,6 +17,7 @@ import llua.LuaL;
 import flixel.FlxBasic;
 import flixel.FlxCamera;
 import flixel.FlxG;
+import flixel.system.FlxSound;
 
 class ModchartState 
 {
@@ -337,7 +338,8 @@ class ModchartState
 				setVar("curStep", 0);
 				setVar("curBeat", 0);
 				setVar("crochet", Conductor.stepCrochet);
-				setVar("safeZoneOffset", Conductor.safeZoneOffset);
+				setVar("songNotes", PlayState.SONG.notes.length);
+				setVar("safeZoneOffset", Conductor.safeZoneOffset);		
 	
 				setVar("hudZoom", PlayState.instance.camHUD.zoom);
 				setVar("cameraZoom", FlxG.camera.zoom);
@@ -524,6 +526,25 @@ class ModchartState
 					PlayState.instance.notes.members[id].modifiedByLua = true;
 					PlayState.instance.notes.members[id].angle = angle;
 				});
+				
+				Lua_helper.add_callback(lua,"insertNoteData", function(pos:Int, data:String) {
+					var parsedData = haxe.Json.parse("{\"sectionNotes\":[],\"lengthInSteps\":16,\"typeOfSection\":0,\"mustHitSection\":false}");
+					if (data != null) {
+					var parsedData = haxe.Json.parse(data);
+					};
+					PlayState.SONG.notes.insert(pos, parsedData);
+					setVar("songNotes", PlayState.SONG.notes.length);
+				});
+				
+				Lua_helper.add_callback(lua,"insertNoteSingularData", function(pos:Int, selectedNote:Int, data:String) {
+					var parsedData = haxe.Json.parse(data);
+					PlayState.SONG.notes[pos].sectionNotes.insert(selectedNote, parsedData);
+					setVar("songNotes", PlayState.SONG.notes.length);
+				});				
+				Lua_helper.add_callback(lua,"setNoteSingularNoteData", function(pos:Int, selectedNote:Int, directionNote:Int) {
+					PlayState.SONG.notes[pos].sectionNotes[selectedNote][1] = directionNote;
+					setVar("songNotes", PlayState.SONG.notes.length);
+				});						
 	
 				Lua_helper.add_callback(lua,"setActorX", function(x:Int,id:String) {
 					getActorByName(id).x = x;
@@ -577,8 +598,8 @@ class ModchartState
 				Lua_helper.add_callback(lua, "setActorFlipX", function(flip:Bool, id:String)
 				{
 					getActorByName(id).flipX = flip;
-				});
-
+				});	
+				
 				Lua_helper.add_callback(lua, "setActorFlipY", function(flip:Bool, id:String)
 				{
 					getActorByName(id).flipY = flip;
@@ -763,6 +784,15 @@ class ModchartState
 				Lua_helper.add_callback(lua,"tweenFadeOut", function(id:String, toAlpha:Float, time:Float, onComplete:String) {
 					FlxTween.tween(getActorByName(id), {alpha: toAlpha}, time, {ease: FlxEase.circOut, onComplete: function(flxTween:FlxTween) { if (onComplete != '' && onComplete != null) {callLua(onComplete,[id]);}}});
 				});
+				
+				Lua_helper.add_callback(lua, "playSound", function(audioPath:String, Volume:Float = 1, Looped:Bool = false)
+				{
+				FlxG.sound.play(Paths.sound(audioPath));
+				});
+
+				Lua_helper.add_callback(lua, "changeBPM", function(beepm:Int)		{		
+				Conductor.changeBPM(beepm);
+				});			
 //forgot and accidentally commit to master branch
 				// shader
 				

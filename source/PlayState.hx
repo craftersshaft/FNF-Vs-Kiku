@@ -101,7 +101,7 @@ class PlayState extends MusicBeatState
 	var detailsPausedText:String = "";
 	#end
 
-	private var vocals:FlxSound;
+	public var vocals:FlxSound;
 
 	public static var dad:Character;
 	public static var gf:Character;
@@ -3351,7 +3351,7 @@ class PlayState extends MusicBeatState
 				if (!note.isSustainNote)
 					notesHitArray.unshift(Date.now());
 
-				if (!resetMashViolation && mashViolations >= 1)
+				if (mashViolations >= 1)
 					mashViolations--;
 
 				if (mashViolations > 0)
