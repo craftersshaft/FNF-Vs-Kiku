@@ -26,22 +26,28 @@ class StoryMenuState extends MusicBeatState
 	var weekData:Array<Dynamic> = [
 		['Tutorial'],
 		['Fami', 'Starpower', 'Duel'],
-		['Numa', 'Nyan']
+		['Numa', 'Nyan'],
+		['Tastetest', 'Middle'],
+		['Brine']
 	];
 	var curDifficulty:Int = 1;
 
-	public static var weekUnlocked:Array<Bool> = [true, true, true];
+	public static var weekUnlocked:Array<Bool> = [true, true, true, true, false];
 
 	var weekCharacters:Array<Dynamic> = [
 		['', 'bf', 'gf'],
 		['', 'bf', 'gf'],
-		['', 'bf', 'gf']
+		['', 'bf', 'gf'],
+		['', 'bf', 'gf'],
+		['', 'bf', 'gf'],
 	];
 
 	var weekNames:Array<String> = [
 		"How to Play",
 		"Vs. Kiku",
-		"Vs. Rudy"
+		"Vs. Rudy",
+		"Vs. Sour",
+		"Vs. Grovyle"
 	];
 
 	var txtWeekTitle:FlxText;
@@ -351,6 +357,9 @@ class StoryMenuState extends MusicBeatState
 		case 2:
 		Conductor.changeBPM(180);
 		FlxG.sound.playMusic(Paths.music('WorldMap2'), 1);
+		case 3:
+		Conductor.changeBPM(150);
+		FlxG.sound.playMusic(Paths.music('WorldMap3'), 1);
 		};
 
 		var bullShit:Int = 0;

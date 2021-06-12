@@ -73,5 +73,6 @@ This game was made with love to Newgrounds and its community. Extra love to Tom 
 - Rudy created by zzzajac
 - Boyfriend UTAU by GenoX
 - SMW Title Font by BmatSantos
+- EchoPiplup for temporary grovyle assets, will be moved to a seperate mod
 - You can use/remix this mod's songs/characters without permission, but don't claim as your own.
 - This does not include any direct Week 7 assets, however it does contain an edited vocal file and a custom skin for Kiku to use in that situation.

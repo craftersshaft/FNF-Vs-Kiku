@@ -341,6 +341,12 @@ class PlayState extends MusicBeatState
 				dialogue = CoolUtil.coolTextFile(Paths.txt('rosus/rosusDialogue'));
 			case 'thorns':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('thorns/thornsDialogue'));
+			case 'brine':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('brine/brineDialogue'));
+			case 'tastetest':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('tastetest/tastetestDialogue'));
+			case 'middle':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('middle/middleDialogue'));
 		}
 
 		switch(SONG.stage)
@@ -678,7 +684,7 @@ class PlayState extends MusicBeatState
 					bgGirls = new BackgroundGirls(-100, 190);
 					bgGirls.scrollFactor.set(0.9, 0.9);
 
-					if (SONG.song.toLowerCase() == 'roses')
+					if (SONG.song.toLowerCase() == 'rosus')
 						{
 							if(FlxG.save.data.distractions){
 								bgGirls.getScared();
@@ -1129,10 +1135,16 @@ class PlayState extends MusicBeatState
 					});
 				case 'senpai':
 					schoolIntro(doof);
-				case 'roses':
+				case 'rosus':
 					FlxG.sound.play(Paths.sound('ANGRY'));
 					schoolIntro(doof);
 				case 'thorns':
+					schoolIntro(doof);
+				case 'brine':
+					schoolIntro(doof);
+				case 'middle':
+					schoolIntro(doof);
+				case 'tastetest':
 					schoolIntro(doof);
 				default:
 					startCountdown();
@@ -1170,7 +1182,7 @@ class PlayState extends MusicBeatState
 		senpaiEvil.updateHitbox();
 		senpaiEvil.screenCenter();
 
-		if (SONG.song.toLowerCase() == 'roses' || SONG.song.toLowerCase() == 'thorns')
+		if (SONG.song.toLowerCase() == 'rosus' || SONG.song.toLowerCase() == 'thorns')
 		{
 			remove(black);
 
