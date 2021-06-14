@@ -28,18 +28,18 @@ class StoryMenuState extends MusicBeatState
 		['Fami', 'Starpower', 'Duel'],
 		['Numa', 'Nyan'],
 		['Workit', 'Tastetest', 'Middle'],
-		['Brine']
+		//['Brine']
 	];
 	var curDifficulty:Int = 1;
 
-	public static var weekUnlocked:Array<Bool> = [true, true, true, true, false];
+	public static var weekUnlocked:Array<Bool> = [true, true, true, true];
 
 	var weekCharacters:Array<Dynamic> = [
 		['', 'bf', 'gf'],
 		['', 'bf', 'gf'],
 		['', 'bf', 'gf'],
 		['', 'bf', 'gf'],
-		['', 'bf', 'gf'],
+		//['', 'bf', 'gf'],
 	];
 
 	var weekNames:Array<String> = [
@@ -47,7 +47,7 @@ class StoryMenuState extends MusicBeatState
 		"Vs. Kiku",
 		"Vs. Rudy",
 		"Vs. Sour",
-		"Vs. Grovyle"
+		//"Vs. Grovyle"
 	];
 
 	var txtWeekTitle:FlxText;
