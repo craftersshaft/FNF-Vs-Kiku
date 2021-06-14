@@ -103,5 +103,6 @@ mod by craftersshaft how in the world did i forget that
 Rudy created by zzzajac
 Boyfriend UTAU by GenoX
 SMW Title Font by BmatSantos
+EchoPiplup for temporary assets, will be moved to a seperate mod
 You can use/remix this mod's songs/characters without permission, but don't claim as your own.
 This does not include any direct Week 7 assets, however it does contain an edited vocal file and a custom skin for Kiku to use in that situation.

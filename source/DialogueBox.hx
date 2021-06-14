@@ -116,16 +116,25 @@ class DialogueBox extends FlxSpriteGroup
 			case 'tastetest':
 				hasDialog = true;
 				portraitLeft = new FlxSprite(148, 172).loadGraphic(Paths.image('weeb/sourPortrait'));
-				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-pixel');
+				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-sour');
 				box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
 				box.animation.addByIndices('normal', 'Text Box Appear', [4], "", 24);
 				dropText.setFormat(Paths.font("vcr.ttf"), 32);	
 				dropText.color = 0xFF000000;
-				swagDialogue.setFormat(Paths.font("vcr.ttf"), 32);		
+				swagDialogue.setFormat(Paths.font("vcr.ttf"), 32);	
+			case 'workit':
+				hasDialog = true;
+				portraitLeft = new FlxSprite(148, 172).loadGraphic(Paths.image('weeb/sourPortrait'));
+				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-sour');
+				box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
+				box.animation.addByIndices('normal', 'Text Box Appear', [4], "", 24);
+				dropText.setFormat(Paths.font("vcr.ttf"), 32);	
+				dropText.color = 0xFF000000;
+				swagDialogue.setFormat(Paths.font("vcr.ttf"), 32);					
 			case 'middle':
 				hasDialog = true;
 				portraitLeft = new FlxSprite(148, 172).loadGraphic(Paths.image('weeb/jokesourPortrait'));
-				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-pixel');
+				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-jokesour');
 				box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
 				box.animation.addByIndices('normal', 'Text Box Appear', [4], "", 24);
 				dropText.setFormat(Paths.font("ComicNeue-Regular.ttf"), 32);	

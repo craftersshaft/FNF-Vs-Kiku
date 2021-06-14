@@ -27,7 +27,7 @@ class StoryMenuState extends MusicBeatState
 		['Tutorial'],
 		['Fami', 'Starpower', 'Duel'],
 		['Numa', 'Nyan'],
-		['Tastetest', 'Middle'],
+		['Workit', 'Tastetest', 'Middle'],
 		['Brine']
 	];
 	var curDifficulty:Int = 1;

@@ -347,6 +347,8 @@ class PlayState extends MusicBeatState
 				dialogue = CoolUtil.coolTextFile(Paths.txt('tastetest/tastetestDialogue'));
 			case 'middle':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('middle/middleDialogue'));
+			case 'workit':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('workit/workitDialogue'));
 		}
 
 		switch(SONG.stage)
@@ -757,13 +759,13 @@ class PlayState extends MusicBeatState
 				{
 						defaultCamZoom = 0.9;
 						curStage = 'stage';
-						var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('stageback'));
+						var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('stageback', 'week1'));
 						bg.antialiasing = true;
 						bg.scrollFactor.set(0.9, 0.9);
 						bg.active = false;
 						add(bg);
 	
-						var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('stagefront'));
+						var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('stagefront', 'week1'));
 						stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
 						stageFront.updateHitbox();
 						stageFront.antialiasing = true;
@@ -771,7 +773,7 @@ class PlayState extends MusicBeatState
 						stageFront.active = false;
 						add(stageFront);
 	
-						var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains'));
+						var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains', 'week1'));
 						stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
 						stageCurtains.updateHitbox();
 						stageCurtains.antialiasing = true;
@@ -1145,6 +1147,8 @@ class PlayState extends MusicBeatState
 				case 'middle':
 					schoolIntro(doof);
 				case 'tastetest':
+					schoolIntro(doof);
+				case 'workit':
 					schoolIntro(doof);
 				default:
 					startCountdown();
