@@ -607,7 +607,7 @@ class ModchartState
                     if (data != null) {
                     var parsedData = Assets.getText(Paths.json(data));
                     };
-                    PlayState.SONG.notes = parsedData);
+                    PlayState.SONG.notes = parsedData;
                     setVar("songNotes", PlayState.SONG.notes.length);
                 });				
                 
