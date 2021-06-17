@@ -1,5 +1,6 @@
 package;
 
+import webm.WebmPlayer;
 import flixel.input.keyboard.FlxKey;
 import haxe.Exception;
 import openfl.geom.Matrix;
@@ -1447,6 +1448,9 @@ class PlayState extends MusicBeatState
 			default: allowedToHeadbang = false;
 		}
 		
+		if (useVideo)
+			GlobalVideo.get().resume();
+		
 		#if windows
 		// Updating Discord Rich Presence (with Time Left)
 		DiscordClient.changePresence(detailsText + " " + SONG.song + " (" + storyDifficultyText + ") " + Ratings.GenerateLetterRank(accuracy), "\nAcc: " + HelperFunctions.truncateFloat(accuracy, 2) + "% | Score: " + songScore + " | Misses: " + misses  , iconRPC);
@@ -1598,16 +1602,6 @@ class PlayState extends MusicBeatState
 
 					switch (Math.abs(i))
 					{
-						case 0:
-							babyArrow.x += Note.swagWidth * 0;
-							babyArrow.animation.add('static', [0]);
-							babyArrow.animation.add('pressed', [4, 8], 12, false);
-							babyArrow.animation.add('confirm', [12, 16], 24, false);
-						case 1:
-							babyArrow.x += Note.swagWidth * 1;
-							babyArrow.animation.add('static', [1]);
-							babyArrow.animation.add('pressed', [5, 9], 12, false);
-							babyArrow.animation.add('confirm', [13, 17], 24, false);
 						case 2:
 							babyArrow.x += Note.swagWidth * 2;
 							babyArrow.animation.add('static', [2]);
@@ -1618,75 +1612,85 @@ class PlayState extends MusicBeatState
 							babyArrow.animation.add('static', [3]);
 							babyArrow.animation.add('pressed', [7, 11], 12, false);
 							babyArrow.animation.add('confirm', [15, 19], 24, false);
+						case 1:
+							babyArrow.x += Note.swagWidth * 1;
+							babyArrow.animation.add('static', [1]);
+							babyArrow.animation.add('pressed', [5, 9], 12, false);
+							babyArrow.animation.add('confirm', [13, 17], 24, false);
+						case 0:
+							babyArrow.x += Note.swagWidth * 0;
+							babyArrow.animation.add('static', [0]);
+							babyArrow.animation.add('pressed', [4, 8], 12, false);
+							babyArrow.animation.add('confirm', [12, 16], 24, false);
 					}
 				
-				case 'normal':
-					babyArrow.frames = Paths.getSparrowAtlas('NOTE_assets');
-					babyArrow.animation.addByPrefix('green', 'arrowUP');
-					babyArrow.animation.addByPrefix('blue', 'arrowDOWN');
-					babyArrow.animation.addByPrefix('purple', 'arrowLEFT');
-					babyArrow.animation.addByPrefix('red', 'arrowRIGHT');
+					case 'normal':
+						babyArrow.frames = Paths.getSparrowAtlas('NOTE_assets');
+						babyArrow.animation.addByPrefix('green', 'arrowUP');
+						babyArrow.animation.addByPrefix('blue', 'arrowDOWN');
+						babyArrow.animation.addByPrefix('purple', 'arrowLEFT');
+						babyArrow.animation.addByPrefix('red', 'arrowRIGHT');
+		
+						babyArrow.antialiasing = true;
+						babyArrow.setGraphicSize(Std.int(babyArrow.width * 0.7));
+		
+						switch (Math.abs(i))
+						{
+							case 0:
+								babyArrow.x += Note.swagWidth * 0;
+								babyArrow.animation.addByPrefix('static', 'arrowLEFT');
+								babyArrow.animation.addByPrefix('pressed', 'left press', 24, false);
+								babyArrow.animation.addByPrefix('confirm', 'left confirm', 24, false);
+							case 1:
+								babyArrow.x += Note.swagWidth * 1;
+								babyArrow.animation.addByPrefix('static', 'arrowDOWN');
+								babyArrow.animation.addByPrefix('pressed', 'down press', 24, false);
+								babyArrow.animation.addByPrefix('confirm', 'down confirm', 24, false);
+							case 2:
+								babyArrow.x += Note.swagWidth * 2;
+								babyArrow.animation.addByPrefix('static', 'arrowUP');
+								babyArrow.animation.addByPrefix('pressed', 'up press', 24, false);
+								babyArrow.animation.addByPrefix('confirm', 'up confirm', 24, false);
+							case 3:
+								babyArrow.x += Note.swagWidth * 3;
+								babyArrow.animation.addByPrefix('static', 'arrowRIGHT');
+								babyArrow.animation.addByPrefix('pressed', 'right press', 24, false);
+								babyArrow.animation.addByPrefix('confirm', 'right confirm', 24, false);
+							}
 	
-					babyArrow.antialiasing = true;
-					babyArrow.setGraphicSize(Std.int(babyArrow.width * 0.7));
+					default:
+						babyArrow.frames = Paths.getSparrowAtlas('NOTE_assets');
+						babyArrow.animation.addByPrefix('green', 'arrowUP');
+						babyArrow.animation.addByPrefix('blue', 'arrowDOWN');
+						babyArrow.animation.addByPrefix('purple', 'arrowLEFT');
+						babyArrow.animation.addByPrefix('red', 'arrowRIGHT');
 	
-					switch (Math.abs(i))
-					{
-						case 0:
-							babyArrow.x += Note.swagWidth * 0;
-							babyArrow.animation.addByPrefix('static', 'arrowLEFT');
-							babyArrow.animation.addByPrefix('pressed', 'left press', 24, false);
-							babyArrow.animation.addByPrefix('confirm', 'left confirm', 24, false);
-						case 1:
-							babyArrow.x += Note.swagWidth * 1;
-							babyArrow.animation.addByPrefix('static', 'arrowDOWN');
-							babyArrow.animation.addByPrefix('pressed', 'down press', 24, false);
-							babyArrow.animation.addByPrefix('confirm', 'down confirm', 24, false);
-						case 2:
-							babyArrow.x += Note.swagWidth * 2;
-							babyArrow.animation.addByPrefix('static', 'arrowUP');
-							babyArrow.animation.addByPrefix('pressed', 'up press', 24, false);
-							babyArrow.animation.addByPrefix('confirm', 'up confirm', 24, false);
-						case 3:
-							babyArrow.x += Note.swagWidth * 3;
-							babyArrow.animation.addByPrefix('static', 'arrowRIGHT');
-							babyArrow.animation.addByPrefix('pressed', 'right press', 24, false);
-							babyArrow.animation.addByPrefix('confirm', 'right confirm', 24, false);
+						babyArrow.antialiasing = true;
+						babyArrow.setGraphicSize(Std.int(babyArrow.width * 0.7));
+	
+						switch (Math.abs(i))
+						{
+							case 0:
+								babyArrow.x += Note.swagWidth * 0;
+								babyArrow.animation.addByPrefix('static', 'arrowLEFT');
+								babyArrow.animation.addByPrefix('pressed', 'left press', 24, false);
+								babyArrow.animation.addByPrefix('confirm', 'left confirm', 24, false);
+							case 1:
+								babyArrow.x += Note.swagWidth * 1;
+								babyArrow.animation.addByPrefix('static', 'arrowDOWN');
+								babyArrow.animation.addByPrefix('pressed', 'down press', 24, false);
+								babyArrow.animation.addByPrefix('confirm', 'down confirm', 24, false);
+							case 2:
+								babyArrow.x += Note.swagWidth * 2;
+								babyArrow.animation.addByPrefix('static', 'arrowUP');
+								babyArrow.animation.addByPrefix('pressed', 'up press', 24, false);
+								babyArrow.animation.addByPrefix('confirm', 'up confirm', 24, false);
+							case 3:
+								babyArrow.x += Note.swagWidth * 3;
+								babyArrow.animation.addByPrefix('static', 'arrowRIGHT');
+								babyArrow.animation.addByPrefix('pressed', 'right press', 24, false);
+								babyArrow.animation.addByPrefix('confirm', 'right confirm', 24, false);
 						}
-
-				default:
-					babyArrow.frames = Paths.getSparrowAtlas('NOTE_assets');
-					babyArrow.animation.addByPrefix('green', 'arrowUP');
-					babyArrow.animation.addByPrefix('blue', 'arrowDOWN');
-					babyArrow.animation.addByPrefix('purple', 'arrowLEFT');
-					babyArrow.animation.addByPrefix('red', 'arrowRIGHT');
-
-					babyArrow.antialiasing = true;
-					babyArrow.setGraphicSize(Std.int(babyArrow.width * 0.7));
-
-					switch (Math.abs(i))
-					{
-						case 0:
-							babyArrow.x += Note.swagWidth * 0;
-							babyArrow.animation.addByPrefix('static', 'arrowLEFT');
-							babyArrow.animation.addByPrefix('pressed', 'left press', 24, false);
-							babyArrow.animation.addByPrefix('confirm', 'left confirm', 24, false);
-						case 1:
-							babyArrow.x += Note.swagWidth * 1;
-							babyArrow.animation.addByPrefix('static', 'arrowDOWN');
-							babyArrow.animation.addByPrefix('pressed', 'down press', 24, false);
-							babyArrow.animation.addByPrefix('confirm', 'down confirm', 24, false);
-						case 2:
-							babyArrow.x += Note.swagWidth * 2;
-							babyArrow.animation.addByPrefix('static', 'arrowUP');
-							babyArrow.animation.addByPrefix('pressed', 'up press', 24, false);
-							babyArrow.animation.addByPrefix('confirm', 'up confirm', 24, false);
-						case 3:
-							babyArrow.x += Note.swagWidth * 3;
-							babyArrow.animation.addByPrefix('static', 'arrowRIGHT');
-							babyArrow.animation.addByPrefix('pressed', 'right press', 24, false);
-							babyArrow.animation.addByPrefix('confirm', 'right confirm', 24, false);
-					}
 			}
 
 			babyArrow.updateHitbox();
@@ -1797,6 +1801,8 @@ class PlayState extends MusicBeatState
 	var maxNPS:Int = 0;
 
 	public static var songRate = 1.5;
+	public var stopUpdate = false;
+	public var removedVideo = false;
 
 	override public function update(elapsed:Float)
 	{
@@ -1835,6 +1841,15 @@ class PlayState extends MusicBeatState
 
 		if (FlxG.save.data.botplay && FlxG.keys.justPressed.ONE)
 			camHUD.visible = !camHUD.visible;
+			
+		if (useVideo && GlobalVideo.get() != null && !stopUpdate)
+			{		
+				if (GlobalVideo.get().ended && !removedVideo)
+				{
+					remove(videoSprite);
+					removedVideo = true;
+				}
+			}
 
 		#if windows
 		if (executeModchart && luaModchart != null && songStarted)
@@ -1956,6 +1971,12 @@ class PlayState extends MusicBeatState
 
 		if (FlxG.keys.justPressed.SEVEN)
 		{
+			if (useVideo)
+				{
+					GlobalVideo.get().stop();
+					remove(videoSprite);
+					removedVideo = true;
+				}
 			#if windows
 			DiscordClient.changePresence("Chart Editor", null, null, true);
 			#end
@@ -2008,6 +2029,12 @@ class PlayState extends MusicBeatState
 		#if debug
 		if (FlxG.keys.justPressed.EIGHT)
 		{
+			if (useVideo)
+				{
+					GlobalVideo.get().stop();
+					remove(videoSprite);
+					removedVideo = true;
+				}
 			FlxG.switchState(new AnimationDebug(SONG.player2));
 			#if windows
 			if (luaModchart != null)
@@ -2584,6 +2611,13 @@ class PlayState extends MusicBeatState
 
 	function endSong():Void
 	{
+		if (useVideo)
+			{
+				GlobalVideo.get().stop();
+				PlayState.instance.remove(PlayState.instance.videoSprite);
+			}
+
+
 		if (!loadRep)
 			rep.SaveReplay(saveNotes);
 		else
@@ -3201,6 +3235,66 @@ class PlayState extends MusicBeatState
 						spr.centerOffsets();
 				});
 			}
+
+		public var fuckingVolume:Float = 1;
+			public var useVideo = false;
+
+			public static var webmHandler:WebmHandler;
+
+			public var playingDathing = false;
+
+			public var videoSprite:FlxSprite;
+
+			public function backgroundVideo(source:String) // for background videos
+				{
+					useVideo = true;
+			
+					var ourSource:String = "assets/videos/daWeirdVid/dontDelete.webm";
+					WebmPlayer.SKIP_STEP_LIMIT = 90;
+					var str1:String = "WEBM SHIT"; 
+					webmHandler = new WebmHandler();
+					webmHandler.source(ourSource);
+					webmHandler.makePlayer();
+					webmHandler.webm.name = str1;
+			
+					GlobalVideo.setWebm(webmHandler);
+
+					GlobalVideo.get().source(source);
+					GlobalVideo.get().clearPause();
+					if (GlobalVideo.isWebm)
+					{
+						GlobalVideo.get().updatePlayer();
+					}
+					GlobalVideo.get().show();
+			
+					if (GlobalVideo.isWebm)
+					{
+						GlobalVideo.get().restart();
+					} else {
+						GlobalVideo.get().play();
+					}
+					
+					var data = webmHandler.webm.bitmapData;
+			
+					videoSprite = new FlxSprite(-470,-30).loadGraphic(data);
+			
+					videoSprite.setGraphicSize(Std.int(videoSprite.width * 1.2));
+			
+					remove(gf);
+					remove(boyfriend);
+					remove(dad);
+					add(videoSprite);
+					 add(gf);
+					add(boyfriend);
+					add(dad);
+			
+					trace('poggers');
+			
+					if (!songStarted)
+						webmHandler.pause();
+					else
+						webmHandler.resume();
+				}
 
 	function noteMiss(direction:Int = 1, daNote:Note):Void
 	{

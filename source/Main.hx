@@ -1,5 +1,6 @@
 package;
 
+import webm.WebmPlayer;
 import openfl.display.BlendMode;
 import openfl.text.TextFormat;
 import openfl.display.Application;
@@ -47,6 +48,9 @@ class Main extends Sprite
 			addEventListener(Event.ADDED_TO_STAGE, init);
 		}
 	}
+
+	public static var webmHandler:WebmHandler;
+
 
 	private function init(?E:Event):Void
 	{
