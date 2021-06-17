@@ -20,6 +20,8 @@ import llua.LuaL;
 import flixel.FlxBasic;
 import flixel.FlxCamera;
 import flixel.FlxG;
+import flixel.system.FlxSound;
+import openfl.utils.Assets;
 
 class ModchartState 
 {
@@ -359,6 +361,7 @@ class ModchartState
 	
 				setVar("difficulty", PlayState.storyDifficulty);
 				setVar("bpm", Conductor.bpm);
+				setVar("songLength", PlayState.instance.songLength);
 				setVar("scrollspeed", FlxG.save.data.scrollSpeed != 1 ? FlxG.save.data.scrollSpeed : PlayState.SONG.speed);
 				setVar("fpsCap", FlxG.save.data.fpsCap);
 				setVar("downscroll", FlxG.save.data.downscroll);
@@ -391,6 +394,8 @@ class ModchartState
 				setVar("mustHit", false);
 
 				setVar("strumLineY", PlayState.instance.strumLine.y);
+				
+				setVar("health", PlayState.instance.health);
 				
 				// callbacks
 	
@@ -596,6 +601,15 @@ class ModchartState
                     PlayState.SONG.notes.insert(pos, parsedData);
                     setVar("songNotes", PlayState.SONG.notes.length);
                 });
+				
+				Lua_helper.add_callback(lua,"replaceNoteDataFromJSON", function(data:String) {
+                    var parsedData = haxe.Json.parse("[{\"sectionNotes\":[],\"lengthInSteps\":16,\"typeOfSection\":0,\"mustHitSection\":false}]");
+                    if (data != null) {
+                    var parsedData = Assets.getText(Paths.json(data));
+                    };
+                    PlayState.SONG.notes = parsedData);
+                    setVar("songNotes", PlayState.SONG.notes.length);
+                });				
                 
                 Lua_helper.add_callback(lua,"insertNoteSingularData", function(pos:Int, selectedNote:Int, data:String) {
                     var parsedData = haxe.Json.parse(data);
@@ -862,14 +876,37 @@ class ModchartState
 					FlxTween.tween(getActorByName(id), {alpha: toAlpha}, time, {ease: FlxEase.circOut, onComplete: function(flxTween:FlxTween) { if (onComplete != '' && onComplete != null) {callLua(onComplete,[id]);}}});
 				});
 
-                Lua_helper.add_callback(lua, "playSound", function(audioPath:String, Volume:Float = 1, Looped:Bool = false)
+                Lua_helper.add_callback(lua, "playSound", function(audioPath:String, volume:Float = 1, looped:Bool = false)
                 {
-                FlxG.sound.play(Paths.sound(audioPath), Volume, Looped);
+                FlxG.sound.play(Paths.sound(audioPath), volume, looped);
                 });
-
+                Lua_helper.add_callback(lua, "playVoices", function(audioPath:String)
+                {
+				PlayState.instance.vocals = new FlxSound().loadEmbedded(Paths.voices(audioPath));
+                });
+                Lua_helper.add_callback(lua, "playInst", function(audioPath:String, volume:Float = 1, looped:Bool = false)
+                {
+				FlxG.sound.playMusic(Paths.inst(audioPath), volume, looped);
+                });				
                 Lua_helper.add_callback(lua, "changeBPM", function(bpm:Int)     {           
                 Conductor.changeBPM(bpm);
                 });    
+				Lua_helper.add_callback(lua,"setSongLength", function (long:Float) {
+					PlayState.instance.songLength = long;
+				});
+				
+				Lua_helper.add_callback(lua,"makeText", function (text:String,toBeCalled:String,yPos:Float) {
+					var money:Alphabet = new Alphabet(0, 0, text, true, false);
+					money.cameras = [PlayState.instance.camHUD];
+					money.screenCenter(X);
+					if (yPos != 0.0){
+					money.y == yPos;
+					} else {
+					money.screenCenter(Y);
+					};
+					luaSprites.set(toBeCalled,money);
+					PlayState.instance.addObject(money);
+					});
 				
 				//forgot and accidentally commit to master branch
 				// shader

@@ -91,7 +91,7 @@ class PlayState extends MusicBeatState
 
 	var halloweenLevel:Bool = false;
 
-	var songLength:Float = 0;
+	public var songLength:Float = 0;
 	var kadeEngineWatermark:FlxText;
 	
 	#if windows
