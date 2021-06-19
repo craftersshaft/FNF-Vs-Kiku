@@ -605,11 +605,11 @@ class ModchartState
 				Lua_helper.add_callback(lua,"replaceNoteDataFromJSON", function(data:String) {
                     var parsedData = haxe.Json.parse("[{\"sectionNotes\":[],\"lengthInSteps\":16,\"typeOfSection\":0,\"mustHitSection\":false}]");
                     if (data != null) {
-                    var parsedData = Assets.getText(Paths.json(data));
+                    var parsedData = haxe.Json.parse(Assets.getText(Paths.json(data)));
                     };
                     PlayState.SONG.notes = parsedData;
                     setVar("songNotes", PlayState.SONG.notes.length);
-                });				
+                });			
                 
                 Lua_helper.add_callback(lua,"insertNoteSingularData", function(pos:Int, selectedNote:Int, data:String) {
                     var parsedData = haxe.Json.parse(data);
@@ -886,6 +886,7 @@ class ModchartState
                 });
                 Lua_helper.add_callback(lua, "playInst", function(audioPath:String, volume:Float = 1, looped:Bool = false)
                 {
+				trace(Paths.inst(audioPath));
 				FlxG.sound.playMusic(Paths.inst(audioPath), volume, looped);
                 });				
                 Lua_helper.add_callback(lua, "changeBPM", function(bpm:Int)     {           
