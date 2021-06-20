@@ -9,7 +9,6 @@ import flixel.input.FlxKeyManager;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
-import HalfsizeEffect.HalfsizeEffect;
 
 using StringTools;
 
@@ -34,8 +33,6 @@ class DialogueBox extends FlxSpriteGroup
 
 	var handSelect:FlxSprite;
 	var bgFade:FlxSprite;
-	var halfsizeShader:HalfsizeEffect.HalfsizeShader;
-
 	public function new(talkingRight:Bool = true, ?dialogueList:Array<String>)
 	{
 		super();
@@ -48,9 +45,9 @@ class DialogueBox extends FlxSpriteGroup
 			case 'thorns':
 				FlxG.sound.playMusic(Paths.music('LunchboxScary'), 0);
 				FlxG.sound.music.fadeIn(1, 0, 0.8);
-			//case 'brine': //shush the up you do not see this 
-			//	FlxG.sound.playMusic(Paths.music('grovCutscene'), 0);
-			//	FlxG.sound.music.fadeIn(1, 0, 0.8);
+			case 'brine':
+				FlxG.sound.playMusic(Paths.music('grovCutscene'), 0);
+				FlxG.sound.music.fadeIn(1, 0, 0.8);
 		}
 
 		bgFade = new FlxSprite(-200, -200).makeGraphic(Std.int(FlxG.width * 1.3), Std.int(FlxG.height * 1.3), 0xFFB3DFd8);

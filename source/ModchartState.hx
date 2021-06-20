@@ -22,6 +22,7 @@ import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.system.FlxSound;
 import openfl.utils.Assets;
+import Section.SwagSection;
 
 class ModchartState 
 {
@@ -370,7 +371,7 @@ class ModchartState
 				setVar("curBeat", 0);
 				setVar("crochet", Conductor.stepCrochet);
 				setVar("safeZoneOffset", Conductor.safeZoneOffset);
-	
+				setVar("songNotes", PlayState.SONG.notes.length);
 				setVar("hudZoom", PlayState.instance.camHUD.zoom);
 				setVar("cameraZoom", FlxG.camera.zoom);
 	
@@ -603,12 +604,13 @@ class ModchartState
                 });
 				
 				Lua_helper.add_callback(lua,"replaceNoteDataFromJSON", function(data:String) {
-                    var parsedData = haxe.Json.parse("[{\"sectionNotes\":[],\"lengthInSteps\":16,\"typeOfSection\":0,\"mustHitSection\":false}]");
-                    if (data != null) {
-                    var parsedData = haxe.Json.parse(Assets.getText(Paths.json(data)));
-                    };
+                    if (data != '') {
+                    var parsedData:Array<SwagSection> = haxe.Json.parse(Assets.getText(Paths.json(data)));
+					trace(parsedData[1]);
                     PlayState.SONG.notes = parsedData;
+					PlayState.instance.regenerateSong();
                     setVar("songNotes", PlayState.SONG.notes.length);
+                    };
                 });			
                 
                 Lua_helper.add_callback(lua,"insertNoteSingularData", function(pos:Int, selectedNote:Int, data:String) {

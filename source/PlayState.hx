@@ -3604,10 +3604,20 @@ class PlayState extends MusicBeatState
 					
 					note.wasGoodHit = true;
 					vocals.volume = 1;
-		
+					#if windows
+					if (luaModchart != null && luaModchart.getVar("doNotKillNotes",'bool')) {
+					note.kill();
+					} else {
+					note.kill();
+					notes.remove(note, true);
+					note.destroy();					
+					}
+					#end
+					#if !windows
 					note.kill();
 					notes.remove(note, true);
 					note.destroy();
+					#end
 					
 					updateAccuracy();
 				}
