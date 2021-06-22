@@ -70,9 +70,9 @@ This game was made with love to Newgrounds and its community. Extra love to Tom 
 - Flashes used for coloring ripped with JPEXS (not the art i did i just mean the original colors)
 - Kade Engine by KadeDev
 - Boyfriend Soundfont by NyxTheShield or MintBreath, filename was just FNF_Boyfriend.sf2
-- Rudy created by zzzajac
+- Rudy + samples created by zzzajac
 - Boyfriend UTAU by GenoX
 - SMW Title Font by BmatSantos
-- EchoPiplup for temporary assets, will be moved to a seperate mod
+- Pretty Rave Girl instrumental from https://www.youtube.com/watch?v=HtXMFf21m-E 
 - You can use/remix this mod's songs/characters without permission, but don't claim as your own.
 - This does not include any direct Week 7 assets, however it does contain an edited vocal file and a custom skin for Kiku to use in that situation.
