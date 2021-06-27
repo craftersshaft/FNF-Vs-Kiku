@@ -260,17 +260,17 @@ class Character extends FlxSkewedSprite
 				addOffset("singRIGHT-alt", -130, -14);
 				// If you're gonna cash in on the Ugh But Character Sings It trend, I can give you the vocals and instrumental.
 				// Just pretend you aren't seeing this right now because i don't want Funkin Team to slaughter me.
-			case 'mom':
-				tex = Paths.getSparrowAtlas('characters/Mom_Assets');
+			case 'stuepid':
+				tex = Paths.getSparrowAtlas('characters/dumbmimiga');
 				frames = tex;
 
-				animation.addByPrefix('idle', "Mom Idle", 24, false);
-				animation.addByPrefix('singUP', "Mom Up Pose", 24, false);
-				animation.addByPrefix('singDOWN', "MOM DOWN POSE", 24, false);
-				animation.addByPrefix('singLEFT', 'Mom Left Pose', 24, false);
+				animation.addByPrefix('idle', "DumbMimigaIdle", 24, false);
+				animation.addByPrefix('singUP', "DumbMimigaRight", 24, false);
+				animation.addByPrefix('singDOWN', "DumbMimigaDown", 24, false);
+				animation.addByPrefix('singLEFT', 'DumbMimigaLeft', 24, false);
 				// ANIMATION IS CALLED MOM LEFT POSE BUT ITS FOR THE RIGHT
 				// CUZ DAVE IS DUMB!
-				animation.addByPrefix('singRIGHT', 'Mom Pose Left', 24, false);
+				animation.addByPrefix('singRIGHT', 'DumbMimigaRight', 24, false);
 
 				addOffset('idle');
 				addOffset("singUP", 14, 71);

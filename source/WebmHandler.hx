@@ -3,7 +3,9 @@ package;
 import flixel.FlxG;
 import openfl.display.Sprite;
 #if desktop
+#if !html5
 import webm.*;
+#end
 #end
 
 class WebmHandler

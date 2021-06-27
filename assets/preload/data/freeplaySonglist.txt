@@ -8,5 +8,4 @@ Workit:sour:3
 Tastetest:sour:3
 Middle:sour:3
 Fresh:spooky:4
-Warehouse:bf:4
 Rosus:senpai:4

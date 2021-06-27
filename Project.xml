@@ -112,7 +112,7 @@
 	<haxelib name="hscript" />
 	
 	<haxelib name="actuate" />
-	<haxelib name="extension-webm"/> <!-- Make sure to use https://github.com/KadeDev/extension-webm/ -->
+	<haxelib name="extension-webm" unless="html5"/> <!-- Make sure to use https://github.com/KadeDev/extension-webm/ -->
 
 
 

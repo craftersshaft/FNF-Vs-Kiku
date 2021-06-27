@@ -850,6 +850,8 @@ class PlayState extends MusicBeatState
 				dad.y += 200;
 			case "rudy":
 				dad.y += 200;
+			case "dumbmimiga":
+				dad.y += 200;
 			case "monster":
 				dad.y += 100;
 			case 'monster-christmas':
@@ -3764,7 +3766,7 @@ class PlayState extends MusicBeatState
 	override function beatHit()
 	{
 		super.beatHit();
-
+		
 		if (generatedMusic)
 		{
 			notes.sort(FlxSort.byY, (FlxG.save.data.downscroll ? FlxSort.ASCENDING : FlxSort.DESCENDING));
@@ -3784,8 +3786,6 @@ class PlayState extends MusicBeatState
 			if (curBeat % 2 == 0 && dad.animOffsets.exists('danceRight'))
 				dad.playAnim('danceRight');
 		}
-
-
 		if (SONG.notes[Math.floor(curStep / 16)] != null)
 		{
 			if (SONG.notes[Math.floor(curStep / 16)].changeBPM)

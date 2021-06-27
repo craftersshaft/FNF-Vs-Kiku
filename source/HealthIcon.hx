@@ -23,7 +23,7 @@ class HealthIcon extends FlxSprite
 		animation.add('spooky', [2, 3], 0, false, isPlayer);
 		animation.add('rudy', [4, 5], 0, false, isPlayer);
 		animation.add('randomchance', [6, 7], 0, false, isPlayer);
-		animation.add('mom-car', [6, 7], 0, false, isPlayer);
+		animation.add('stuepid', [6, 7], 0, false, isPlayer);
 		animation.add('kikugh', [8, 9], 0, false, isPlayer);
 		animation.add('dad', [10, 11], 0, false, isPlayer);
 		animation.add('sour', [12, 13], 0, false, isPlayer);
