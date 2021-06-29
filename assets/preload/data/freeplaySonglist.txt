@@ -7,5 +7,6 @@ Nyan:rudy:2
 Workit:sour:3
 Tastetest:sour:3
 Middle:sour:3
-Fresh:spooky:4
-Rosus:senpai:4
+Thoughtless:stuepid:4
+Fresh:spooky:5
+Rosus:senpai:5

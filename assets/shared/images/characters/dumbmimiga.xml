@@ -2,19 +2,38 @@
 <TextureAtlas imagePath="dumbmimiga.png">
 	<!-- Created with Adobe Animate version 18.0.2.126 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="DumbMimigaIdle0000" x="610" y="2" width="268" height="387"/>
-	<SubTexture name="DumbMimigaIdle0001" x="610" y="2" width="268" height="387"/>
-	<SubTexture name="DumbMimigaIdle0002" x="306" y="391" width="268" height="387"/>
-	<SubTexture name="DumbMimigaIdle0003" x="576" y="391" width="268" height="387"/>
-	<SubTexture name="DumbMimigaIdle0004" x="576" y="391" width="268" height="387"/>
-	<SubTexture name="DumbMimigaIdle0005" x="576" y="391" width="268" height="387"/>
-	<SubTexture name="DumbMimigaIdle0006" x="576" y="391" width="268" height="387"/>
-	<SubTexture name="DumbMimigaIdle0007" x="576" y="391" width="268" height="387"/>
-	<SubTexture name="DumbMimigaLeft0000" x="2" y="2" width="302" height="387"/>
-	<SubTexture name="DumbMimigaLeft0001" x="2" y="2" width="302" height="387"/>
-	<SubTexture name="DumbMimigaLeft0002" x="2" y="391" width="302" height="387"/>
-	<SubTexture name="DumbMimigaLeft0003" x="306" y="2" width="302" height="387"/>
-	<SubTexture name="DumbMimigaLeft0004" x="306" y="2" width="302" height="387"/>
-	<SubTexture name="DumbMimigaLeft0005" x="306" y="2" width="302" height="387"/>
-	<SubTexture name="DumbMimigaLeft0006" x="306" y="2" width="302" height="387"/>
+	<SubTexture name="DumbMimigaDown0000" x="317" y="403" width="285" height="373"/>
+	<SubTexture name="DumbMimigaDown0001" x="317" y="403" width="285" height="373"/>
+	<SubTexture name="DumbMimigaDown0002" x="317" y="784" width="285" height="373"/>
+	<SubTexture name="DumbMimigaDown0003" x="317" y="784" width="285" height="373"/>
+	<SubTexture name="DumbMimigaDown0004" x="317" y="784" width="285" height="373"/>
+	<SubTexture name="DumbMimigaDown0005" x="317" y="784" width="285" height="373"/>
+	<SubTexture name="DumbMimigaIdle0000" x="589" y="1165" width="268" height="387"/>
+	<SubTexture name="DumbMimigaIdle0001" x="589" y="1165" width="268" height="387"/>
+	<SubTexture name="DumbMimigaIdle0002" x="589" y="1560" width="268" height="387"/>
+	<SubTexture name="DumbMimigaIdle0003" x="610" y="403" width="268" height="387"/>
+	<SubTexture name="DumbMimigaIdle0004" x="610" y="403" width="268" height="387"/>
+	<SubTexture name="DumbMimigaIdle0005" x="610" y="403" width="268" height="387"/>
+	<SubTexture name="DumbMimigaIdle0006" x="610" y="403" width="268" height="387"/>
+	<SubTexture name="DumbMimigaIdle0007" x="610" y="403" width="268" height="387"/>
+	<SubTexture name="DumbMimigaLeft0000" x="8" y="1223" width="302" height="387"/>
+	<SubTexture name="DumbMimigaLeft0001" x="8" y="1223" width="302" height="387"/>
+	<SubTexture name="DumbMimigaLeft0002" x="8" y="1618" width="302" height="387"/>
+	<SubTexture name="DumbMimigaLeft0003" x="317" y="8" width="302" height="387"/>
+	<SubTexture name="DumbMimigaLeft0004" x="317" y="8" width="302" height="387"/>
+	<SubTexture name="DumbMimigaLeft0005" x="317" y="8" width="302" height="387"/>
+	<SubTexture name="DumbMimigaLeft0006" x="317" y="8" width="302" height="387"/>
+	<SubTexture name="DumbMimigaRight0000" x="8" y="8" width="301" height="397"/>
+	<SubTexture name="DumbMimigaRight0001" x="8" y="8" width="301" height="397"/>
+	<SubTexture name="DumbMimigaRight0002" x="8" y="413" width="301" height="397"/>
+	<SubTexture name="DumbMimigaRight0003" x="8" y="818" width="301" height="397"/>
+	<SubTexture name="DumbMimigaRight0004" x="8" y="818" width="301" height="397"/>
+	<SubTexture name="DumbMimigaRight0005" x="8" y="818" width="301" height="397"/>
+	<SubTexture name="DumbMimigaRight0006" x="8" y="818" width="301" height="397"/>
+	<SubTexture name="DumbMimigaUp0000" x="318" y="1165" width="263" height="395"/>
+	<SubTexture name="DumbMimigaUp0001" x="318" y="1165" width="263" height="395"/>
+	<SubTexture name="DumbMimigaUp0002" x="318" y="1568" width="263" height="395"/>
+	<SubTexture name="DumbMimigaUp0003" x="318" y="1568" width="263" height="395"/>
+	<SubTexture name="DumbMimigaUp0004" x="318" y="1568" width="263" height="395"/>
+	<SubTexture name="DumbMimigaUp0005" x="318" y="1568" width="263" height="395"/>
 </TextureAtlas>

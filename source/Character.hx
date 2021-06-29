@@ -265,7 +265,7 @@ class Character extends FlxSkewedSprite
 				frames = tex;
 
 				animation.addByPrefix('idle', "DumbMimigaIdle", 24, false);
-				animation.addByPrefix('singUP', "DumbMimigaRight", 24, false);
+				animation.addByPrefix('singUP', "DumbMimigaUp", 24, false);
 				animation.addByPrefix('singDOWN', "DumbMimigaDown", 24, false);
 				animation.addByPrefix('singLEFT', 'DumbMimigaLeft', 24, false);
 				// ANIMATION IS CALLED MOM LEFT POSE BUT ITS FOR THE RIGHT
@@ -273,10 +273,10 @@ class Character extends FlxSkewedSprite
 				animation.addByPrefix('singRIGHT', 'DumbMimigaRight', 24, false);
 
 				addOffset('idle');
-				addOffset("singUP", 14, 71);
-				addOffset("singRIGHT", 10, -60);
-				addOffset("singLEFT", 250, -23);
-				addOffset("singDOWN", 20, -160);
+				addOffset("singUP", 0, -5);
+				addOffset("singRIGHT", 0, 0);
+				addOffset("singLEFT", 50, 0);
+				addOffset("singDOWN", 0, 20);
 
 				playAnim('idle');
 
