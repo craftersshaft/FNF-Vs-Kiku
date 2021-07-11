@@ -4,6 +4,7 @@ Starpower:spooky:1
 Duel:spooky:1
 Numa:rudy:2
 Nyan:rudy:2
+Better:rudy:2
 Workit:sour:3
 Tastetest:sour:3
 Middle:sour:3
