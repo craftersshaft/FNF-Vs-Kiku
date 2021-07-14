@@ -280,6 +280,33 @@ class Character extends FlxSkewedSprite
 
 				playAnim('idle');
 
+			case 'vendetta':
+				tex = Paths.getSparrowAtlas('characters/MFvendetta');
+				frames = tex;
+
+				animation.addByPrefix('idle', "VendettaIdle", 24, false);
+				animation.addByPrefix('singUP', "VendettaUp", 24, false);
+				animation.addByPrefix('singDOWN', "VendettaDown", 24, false);
+				animation.addByPrefix('singLEFT', 'VendettaLeft', 24, false);
+				animation.addByPrefix('singRIGHT', 'VendettaRight', 24, false);
+				animation.addByPrefix('singUPmiss', "VendettaMissUp", 24, false);
+				animation.addByPrefix('singDOWNmiss', "VendettaMissDown", 24, false);
+				animation.addByPrefix('singLEFTmiss', 'VendettaMissLeft', 24, false);
+				animation.addByPrefix('singRIGHTmiss', 'VendettaMissRight', 24, false);
+
+				addOffset('idle');
+				addOffset("singUP", 10, 0);
+				addOffset("singRIGHT", 0, 0);
+				addOffset("singLEFT", 45, 0);
+				addOffset("singDOWN", 0, 0);
+				addOffset("singUPmiss", 10, 0);
+				addOffset("singRIGHTmiss", 0, 0);
+				addOffset("singLEFTmiss", 45, 0);
+				addOffset("singDOWNmiss", 0, 0);
+
+				playAnim('idle');
+
+
 			case 'mom-car':
 				tex = Paths.getSparrowAtlas('characters/momCar');
 				frames = tex;

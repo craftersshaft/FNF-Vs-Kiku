@@ -9,5 +9,6 @@ Workit:sour:3
 Tastetest:sour:3
 Middle:sour:3
 Thoughtless:stuepid:4
+Roses:vendetta:4
 Fresh:spooky:5
 Rosus:senpai:5
