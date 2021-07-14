@@ -105,7 +105,8 @@ Boyfriend UTAU by GenoX
 SMW Title Font by BmatSantos
 EchoPiplup for temporary assets, will be moved to a seperate mod
 daniwellp for creating the original Nyan Cat music
-Pretty Rave Girl instrumental from https://www.youtube.com/watch?v=HtXMFf21m-E 
+Better instrumental from https://www.youtube.com/watch?v=nskojzSspdc
+Vendetta created by Amy Winfrey
 
 
 You can use/remix this mod's songs/characters without permission, but don't claim as your own.
