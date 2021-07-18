@@ -230,7 +230,7 @@ class FreeplayState extends MusicBeatState
 
 		if (curDifficulty < 1)
 			curDifficulty = 1;
-		if (curDifficulty > 1)
+		if (curDifficulty > 1 && songs[curSelected].songName != 'Middle')
 			curDifficulty = 1;
 
 		#if !switch

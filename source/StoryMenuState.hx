@@ -268,6 +268,9 @@ class StoryMenuState extends MusicBeatState
 				}
 				FlxG.sound.play(Paths.sound('confirmMenu'));
 				curDifficulty = 1;
+				if (curWeek == 3 && curDifficulty > 1) {
+				curDifficulty = 2;
+				}
 				grpWeekText.members[curWeek].startFlashing();
 				grpWeekCharacters.members[1].animation.play('bfConfirm');
 				stopspamming = true;
