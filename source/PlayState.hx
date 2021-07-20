@@ -390,6 +390,22 @@ class PlayState extends MusicBeatState
 
 				isHalloween = false;
 			}
+			case 'fiend': 
+			{
+				curStage = 'fiend';
+				halloweenLevel = true;
+
+				var hallowTex = Paths.getSparrowAtlas('ClamburgBG','week4');
+
+				halloweenBG = new FlxSprite(-400, -100);
+				halloweenBG.frames = hallowTex;
+				halloweenBG.animation.addByPrefix('idle', 'halloweem bg');
+				halloweenBG.animation.play('idle');
+				halloweenBG.antialiasing = true;
+				add(halloweenBG);
+
+				isHalloween = false;
+			}
 			case 'factory': 
 			{
 				curStage = 'factory';
@@ -1537,6 +1553,7 @@ class PlayState extends MusicBeatState
 
 				var swagNote:Note = new Note(daStrumTime, daNoteData, oldNote);
 				swagNote.sustainLength = songNotes[2];
+				swagNote.noteType = songNotes[3]; swagNote.changeStyle();
 				swagNote.scrollFactor.set(0, 0);
 
 				var susLength:Float = swagNote.sustainLength;
@@ -2686,6 +2703,9 @@ class PlayState extends MusicBeatState
 							if (FlxG.save.data.instakill){
 							
 								health = 0;}	
+							else if (daNote.noteType == "fiend") {
+							return;
+							}
 							else{
 								health -= 0.075;
 								#if windows
@@ -2882,7 +2902,26 @@ class PlayState extends MusicBeatState
 				totalNotesHit += wife;
 
 			var daRating = daNote.rating;
-
+			
+			if (daNote.noteType == "fiend"){
+					score = -300;
+					combo = 0;
+					misses++;
+					if (FlxG.save.data.instakill){			
+						health = 0;}	
+					else{					
+					health -= (health / 2) - 0.1;
+					#if windows
+					if (executeModchart && luaModchart != null){luaModchart.setVar('health', health);};
+					#end
+					}
+					ss = false;
+					shits++;
+					if (FlxG.save.data.accuracyMod == 0)
+						totalNotesHit += 0.25;		
+			
+			} else {
+			
 			switch(daRating)
 			{
 				case 'shit':
@@ -2937,6 +2976,7 @@ class PlayState extends MusicBeatState
 					if (FlxG.save.data.accuracyMod == 0)
 						totalNotesHit += 1;
 					sicks++;
+			}
 			}
 
 			// trace('Wife accuracy loss: ' + wife + ' | Rating: ' + daRating + ' | Score: ' + score + ' | Weight: ' + (1 - wife));
@@ -3309,8 +3349,8 @@ class PlayState extends MusicBeatState
 					!FlxG.save.data.downscroll && daNote.y < strumLine.y)
 					{
 						// Force good note hit regardless if it's too late to hit it or not as a fail safe
-						if(FlxG.save.data.botplay && daNote.canBeHit && daNote.mustPress ||
-						FlxG.save.data.botplay && daNote.tooLate && daNote.mustPress)
+						if(FlxG.save.data.botplay && daNote.canBeHit && daNote.mustPress && (daNote.noteType != "fiend") ||
+						FlxG.save.data.botplay && daNote.tooLate && daNote.mustPress && (daNote.noteType != "fiend"))
 						{
 							if(loadRep)
 							{
@@ -3608,6 +3648,27 @@ class PlayState extends MusicBeatState
 					if (luaModchart != null)
 						luaModchart.executeState('playerOneSing', [note.noteData, Conductor.songPosition]);
 					#end
+					
+					if (note.noteType == "fiend")
+					{
+					
+					switch (note.noteData)
+					{
+						case 2:
+							boyfriend.playAnim('singUPmiss', true);
+							camHUD.y -= 10;
+						case 3:
+							boyfriend.playAnim('singRIGHTmiss', true);
+							camHUD.angle += 5;
+						case 1:
+							boyfriend.playAnim('singDOWNmiss', true);
+							camHUD.y += 10;
+						case 0:
+							boyfriend.playAnim('singLEFTmiss', true);
+							camHUD.angle += -5;
+					}
+					
+					}
 
 
 					if(!loadRep && note.mustPress)
@@ -3788,7 +3849,8 @@ class PlayState extends MusicBeatState
 		{
 			notes.sort(FlxSort.byY, (FlxG.save.data.downscroll ? FlxSort.ASCENDING : FlxSort.DESCENDING));
 		}
-
+		
+			
 		#if windows
 		if (executeModchart && luaModchart != null)
 		{
@@ -3832,10 +3894,15 @@ class PlayState extends MusicBeatState
 			FlxG.camera.zoom += 0.015;
 			camHUD.zoom += 0.03;
 		}
+		
+		if (curBeat % 8 == 0)
+		{
+		camHUD.y = 0;
+		camHUD.angle = 0;
+		}
 
 		iconP1.setGraphicSize(Std.int(iconP1.width + 30));
 		iconP2.setGraphicSize(Std.int(iconP2.width + 30));
-
 		iconP1.updateHitbox();
 		iconP2.updateHitbox();
 
@@ -3848,6 +3915,8 @@ class PlayState extends MusicBeatState
 		{
 			boyfriend.playAnim('idle');
 		}
+		
+		
 		
 		if (!dad.animation.curAnim.name.startsWith("sing"))
 		{
