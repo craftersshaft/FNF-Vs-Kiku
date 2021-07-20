@@ -3656,13 +3656,13 @@ class PlayState extends MusicBeatState
 					{
 						case 2:
 							boyfriend.playAnim('singUPmiss', true);
-							camHUD.y -= 10;
+							camHUD.y -= 20;
 						case 3:
 							boyfriend.playAnim('singRIGHTmiss', true);
 							camHUD.angle += 5;
 						case 1:
 							boyfriend.playAnim('singDOWNmiss', true);
-							camHUD.y += 10;
+							camHUD.y += 20;
 						case 0:
 							boyfriend.playAnim('singLEFTmiss', true);
 							camHUD.angle += -5;
