@@ -397,7 +397,7 @@ class PlayState extends MusicBeatState
 
 				var hallowTex = Paths.getSparrowAtlas('ClamburgBG','week4');
 
-				halloweenBG = new FlxSprite(-400, -100);
+				halloweenBG = new FlxSprite(-450, -100);
 				halloweenBG.frames = hallowTex;
 				halloweenBG.animation.addByPrefix('idle', 'halloweem bg');
 				halloweenBG.animation.play('idle');
@@ -2910,7 +2910,7 @@ class PlayState extends MusicBeatState
 					if (FlxG.save.data.instakill){			
 						health = 0;}	
 					else{					
-					health -= (health / 2) - 0.1;
+					health -= (health / 3) - 0.1;
 					#if windows
 					if (executeModchart && luaModchart != null){luaModchart.setVar('health', health);};
 					#end

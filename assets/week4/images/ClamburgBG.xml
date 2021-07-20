@@ -2,5 +2,5 @@
 <TextureAtlas imagePath="ClamburgBG.png">
 	<!-- Created with Adobe Animate version 18.0.2.126 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="halloweem bg0000" x="2" y="2" width="2293" height="1193"/>
+	<SubTexture name="halloweem bg0000" x="2" y="2" width="2293" height="1195"/>
 </TextureAtlas>
