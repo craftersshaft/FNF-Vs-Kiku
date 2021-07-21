@@ -45,9 +45,6 @@ class DialogueBox extends FlxSpriteGroup
 			case 'thorns':
 				FlxG.sound.playMusic(Paths.music('LunchboxScary'), 0);
 				FlxG.sound.music.fadeIn(1, 0, 0.8);
-			case 'brine':
-				FlxG.sound.playMusic(Paths.music('grovCutscene'), 0);
-				FlxG.sound.music.fadeIn(1, 0, 0.8);
 		}
 
 		bgFade = new FlxSprite(-200, -200).makeGraphic(Std.int(FlxG.width * 1.3), Std.int(FlxG.height * 1.3), 0xFFB3DFd8);
@@ -98,21 +95,24 @@ class DialogueBox extends FlxSpriteGroup
 				var face:FlxSprite = new FlxSprite(320, 170).loadGraphic(Paths.image('weeb/spiritFaceForward'));
 				face.setGraphicSize(Std.int(face.width * 6));
 				add(face);
-			case 'brine':
+			case 'grape-punch':
 				hasDialog = true;
-				portraitLeft = new FlxSprite(148, 172).loadGraphic(Paths.image('weeb/grovPortrait'));
-				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-pixel');
+				portraitLeft = new FlxSprite(148, 172).loadGraphic(Paths.image('weeb/vendettaPortrait'));
+				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-sour');
 				box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
 				box.animation.addByIndices('normal', 'Text Box Appear', [4], "", 24);
-				
-				dropText = new FlxText(242, 502, Std.int(FlxG.width * 0.6), "", 32);
-				dropText.setFormat(Paths.font("pkmn.ttf"), 64);
+				dropText.setFormat(Paths.font("vcr.ttf"), 32);	
 				dropText.color = 0xFF000000;
-		
-				swagDialogue = new FlxTypeText(240, 500, Std.int(FlxG.width * 0.6), "", 32);
-				swagDialogue.setFormat(Paths.font("pkmn.ttf"), 64);
-				swagDialogue.color = 0xFFFFFFFF;
-				swagDialogue.sounds = [FlxG.sound.load(Paths.sound('pixelText'), 0.6)];
+				swagDialogue.setFormat(Paths.font("vcr.ttf"), 32);	
+			case 'clams':
+				hasDialog = true;
+				portraitLeft = new FlxSprite(148, 172).loadGraphic(Paths.image('weeb/vendettaPortrait'));
+				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-sour');
+				box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
+				box.animation.addByIndices('normal', 'Text Box Appear', [4], "", 24);
+				dropText.setFormat(Paths.font("vcr.ttf"), 32);	
+				dropText.color = 0xFF000000;
+				swagDialogue.setFormat(Paths.font("vcr.ttf"), 32);	
 			case 'tastetest':
 				hasDialog = true;
 				portraitLeft = new FlxSprite(148, 172).loadGraphic(Paths.image('weeb/sourPortrait'));

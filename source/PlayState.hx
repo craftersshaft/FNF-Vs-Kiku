@@ -342,8 +342,10 @@ class PlayState extends MusicBeatState
 				dialogue = CoolUtil.coolTextFile(Paths.txt('rosus/rosusDialogue'));
 			case 'thorns':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('thorns/thornsDialogue'));
-			case 'brine':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('brine/brineDialogue'));
+			case 'grape-punch':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('grape-punch/grape-punchDialogue'));
+			case 'clams':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('clams/clamsDialogue'));
 			case 'tastetest':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('tastetest/tastetestDialogue'));
 			case 'middle':
@@ -1165,7 +1167,9 @@ class PlayState extends MusicBeatState
 					schoolIntro(doof);
 				case 'thorns':
 					schoolIntro(doof);
-				case 'brine':
+				case 'grape-punch':
+					schoolIntro(doof);
+				case 'clams':
 					schoolIntro(doof);
 				case 'middle':
 					schoolIntro(doof);

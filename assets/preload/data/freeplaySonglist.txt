@@ -10,7 +10,7 @@ Tastetest:sour:3
 Middle:sour:3
 Clams:vendetta:4
 Grape-Punch:vendetta:4
-Roses:vendetta:5
 Thoughtless:stuepid:5
+Roses:vendetta:5
 Fresh:spooky:5
 Rosus:senpai:5
