@@ -123,6 +123,31 @@ class Note extends FlxSprite
 				setGraphicSize(Std.int(width * 0.7));
 				updateHitbox();
 				antialiasing = true;
+			case 'paint':
+				loadGraphic(Paths.image('arrows-paint'), true, 128, 128);
+
+				animation.add('greenScroll', [2]);
+				animation.add('redScroll', [3]);
+				animation.add('blueScroll', [1]);
+				animation.add('purpleScroll', [0]);
+
+				if (isSustainNote)
+				{
+					loadGraphic(Paths.image('weeb/pixelUI/arrowEnds'), true, 7, 6);
+
+					animation.add('purpleholdend', [4]);
+					animation.add('greenholdend', [6]);
+					animation.add('redholdend', [7]);
+					animation.add('blueholdend', [5]);
+
+					animation.add('purplehold', [0]);
+					animation.add('greenhold', [2]);
+					animation.add('redhold', [3]);
+					animation.add('bluehold', [1]);
+				setGraphicSize(Std.int(width * PlayState.daPixelZoom));
+				}
+				antialiasing = false;
+				updateHitbox();
 			default:
 				frames = Paths.getSparrowAtlas('NOTE_assets');
 
@@ -144,6 +169,7 @@ class Note extends FlxSprite
 				setGraphicSize(Std.int(width * 0.7));
 				updateHitbox();
 				antialiasing = true;
+
 		}
 
 		switch (noteData)
@@ -261,6 +287,31 @@ class Note extends FlxSprite
 				}
 				antialiasing = false;
 				setGraphicSize(Std.int(width * PlayState.daPixelZoom));
+				updateHitbox();
+			case 'paint':
+				loadGraphic(Paths.image('arrows-paint'), true, 128, 128);
+
+				animation.add('greenScroll', [2]);
+				animation.add('redScroll', [3]);
+				animation.add('blueScroll', [1]);
+				animation.add('purpleScroll', [0]);
+
+				if (isSustainNote)
+				{
+					loadGraphic(Paths.image('weeb/pixelUI/arrowEnds'), true, 7, 6);
+
+					animation.add('purpleholdend', [4]);
+					animation.add('greenholdend', [6]);
+					animation.add('redholdend', [7]);
+					animation.add('blueholdend', [5]);
+
+					animation.add('purplehold', [0]);
+					animation.add('greenhold', [2]);
+					animation.add('redhold', [3]);
+					animation.add('bluehold', [1]);
+				setGraphicSize(Std.int(width * PlayState.daPixelZoom));
+				}
+				antialiasing = false;
 				updateHitbox();
 			case 'fiend':
 				frames = Paths.getSparrowAtlas('FiendNOTE_assets');
