@@ -120,6 +120,12 @@ class Paths
 		return FlxAtlasFrames.fromSparrow(image(key, library), file('images/$key.xml', library));
 	}
 	
+	inline static public function video(key:String)
+	{
+		return 'assets/videos/$key';
+	}
+
+	
 	inline static public function getSparrowAtlasForLazy(key:String, ?library:String)
 	{
 		return FlxAtlasFrames.fromSparrow(image(key, library), file('images/characters/lazy.xml', library));

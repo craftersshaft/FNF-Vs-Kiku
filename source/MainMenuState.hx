@@ -4,6 +4,7 @@ import Controls.KeyboardScheme;
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
+import flixel.math.FlxRandom;
 import flixel.effects.FlxFlicker;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxGroup.FlxTypedGroup;
@@ -12,7 +13,11 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
+import flixel.system.FlxSoundGroup;
 import io.newgrounds.NG;
+#if cpp
+import webm.WebmPlayer;
+#end
 import lime.app.Application;
 
 #if windows
@@ -28,7 +33,7 @@ class MainMenuState extends MusicBeatState
 	var menuItems:FlxTypedGroup<FlxSprite>;
 
 	#if !switch
-	var optionShit:Array<String> = ['story mode', 'freeplay', 'donate', 'options'];
+	var optionShit:Array<String> = ['story mode', 'freeplay', 'donate', 'options', 'memes'];
 	#else
 	var optionShit:Array<String> = ['story mode', 'freeplay'];
 	#end
@@ -94,7 +99,7 @@ class MainMenuState extends MusicBeatState
 
 		for (i in 0...optionShit.length)
 		{
-			var menuItem:FlxSprite = new FlxSprite(0, 60 + (i * 160));
+			var menuItem:FlxSprite = new FlxSprite(0, 30 + (i * 130));
 			menuItem.frames = tex;
 			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
@@ -127,9 +132,58 @@ class MainMenuState extends MusicBeatState
 	}
 
 	var selectedSomethin:Bool = false;
+	var memeSoundGroup:FlxSoundGroup = new FlxSoundGroup();
+	public var fuckingVolume:Float = 1;
+	public var useVideo = false;
+
+	public static var webmHandler:WebmHandler;
+
+	public var playingDathing = false;
+
+	public var videoSprite:FlxSprite;
+	public function dotheVideo(source:String) // for background videos
+				{
+					#if cpp
+					useVideo = true;
+					remove(videoSprite);
+					var ourSource:String = "assets/videos/daWeirdVid/dontDelete.webm";
+					WebmPlayer.SKIP_STEP_LIMIT = 90;
+					var str1:String = "WEBM SHIT"; 
+					webmHandler = new WebmHandler();
+					webmHandler.source(ourSource);
+					webmHandler.makePlayer();
+					webmHandler.webm.name = str1;
+			
+					GlobalVideo.setWebm(webmHandler);
+
+					GlobalVideo.get().source(source);
+					GlobalVideo.get().clearPause();
+					if (GlobalVideo.isWebm)
+					{
+						GlobalVideo.get().updatePlayer();
+					}
+					GlobalVideo.get().show();
+			
+					if (GlobalVideo.isWebm)
+					{
+						GlobalVideo.get().restart();
+					} else {
+						GlobalVideo.get().play();
+					}
+					
+					var data = webmHandler.webm.bitmapData;
+			
+					videoSprite = new FlxSprite(0,260).loadGraphic(data);
+					add(videoSprite);
+			
+					trace('poggers');
+					#end
+				}
+
 
 	override function update(elapsed:Float)
 	{
+	
 		if (FlxG.sound.music.volume < 0.8)
 		{
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
@@ -163,6 +217,13 @@ class MainMenuState extends MusicBeatState
 					#else
 					FlxG.openURL('https://www.kickstarter.com/projects/funkin/friday-night-funkin-the-full-ass-game');
 					#end
+				}
+				else if (optionShit[curSelected] == 'memes') {
+				var randomizer = new FlxRandom();
+				var tempRandSong = FlxG.random.int(1,2);
+				var nextRandSong:Int = tempRandSong;
+				FlxG.sound.play(Paths.sound('randomMeme'+nextRandSong), 1, false, null, true, function(){remove(videoSprite);remove(videoSprite);remove(videoSprite);});
+				dotheVideo(Paths.video('randomMeme'+nextRandSong+'.webm'));
 				}
 				else
 				{
@@ -232,7 +293,6 @@ class MainMenuState extends MusicBeatState
 				FlxG.switchState(new OptionsMenu());
 		}
 	}
-
 	function changeItem(huh:Int = 0)
 	{
 		curSelected += huh;

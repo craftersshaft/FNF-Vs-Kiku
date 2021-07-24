@@ -408,6 +408,22 @@ class PlayState extends MusicBeatState
 
 				isHalloween = false;
 			}
+			case 'snow': 
+			{
+				curStage = 'snow';
+				halloweenLevel = true;
+
+				var hallowTex = Paths.getSparrowAtlas('RoppuBG','week4');
+
+				halloweenBG = new FlxSprite(-450, -100);
+				halloweenBG.frames = hallowTex;
+				halloweenBG.animation.addByPrefix('idle', 'halloweem bg');
+				halloweenBG.animation.play('idle');
+				halloweenBG.antialiasing = true;
+				add(halloweenBG);
+
+				isHalloween = false;
+			}
 			case 'factory': 
 			{
 				curStage = 'factory';
