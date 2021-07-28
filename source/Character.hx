@@ -279,6 +279,24 @@ class Character extends FlxSkewedSprite
 				addOffset("singDOWN", 0, 20);
 
 				playAnim('idle');
+				
+			case 'roppukun':
+				tex = Paths.getSparrowAtlas('characters/roppukun_assets');
+				frames = tex;
+
+				animation.addByPrefix('idle', "RoppuIdle", 24, false);
+				animation.addByPrefix('singUP', "RoppuUp", 24, false);
+				animation.addByPrefix('singDOWN', "RoppuDown", 24, false);
+				animation.addByPrefix('singLEFT', 'RoppuLeft', 24, false);
+				animation.addByPrefix('singRIGHT', 'RoppuRight', 24, false);
+
+				addOffset('idle', 0, 20);
+				addOffset("singUP");
+				addOffset("singRIGHT");
+				addOffset("singLEFT");
+				addOffset("singDOWN");
+
+				playAnim('idle');
 
 			case 'vendetta':
 				tex = Paths.getSparrowAtlas('characters/MFvendetta');

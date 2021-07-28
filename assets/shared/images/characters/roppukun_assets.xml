@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="roppukun_assets.png">
+	<!-- Created with Adobe Animate version 18.0.2.126 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="RoppuDown0000" x="2297" y="4" width="763" height="670"/>
+	<SubTexture name="RoppuDown0001" x="2297" y="4" width="763" height="670"/>
+	<SubTexture name="RoppuDown0002" x="2297" y="678" width="763" height="670"/>
+	<SubTexture name="RoppuDown0003" x="1554" y="2065" width="763" height="670"/>
+	<SubTexture name="RoppuDown0004" x="1554" y="2065" width="763" height="670"/>
+	<SubTexture name="RoppuDown0005" x="1554" y="2065" width="763" height="670"/>
+	<SubTexture name="RoppuDown0006" x="1554" y="2065" width="763" height="670"/>
+	<SubTexture name="RoppuDown0007" x="1554" y="2065" width="763" height="670"/>
+	<SubTexture name="RoppuIdle0000" x="783" y="681" width="753" height="688"/>
+	<SubTexture name="RoppuIdle0001" x="783" y="681" width="753" height="688"/>
+	<SubTexture name="RoppuIdle0002" x="1540" y="681" width="753" height="688"/>
+	<SubTexture name="RoppuIdle0003" x="1540" y="681" width="753" height="688"/>
+	<SubTexture name="RoppuIdle0004" x="1554" y="1373" width="753" height="688"/>
+	<SubTexture name="RoppuIdle0005" x="783" y="1373" width="753" height="688"/>
+	<SubTexture name="RoppuIdle0006" x="783" y="1373" width="753" height="688"/>
+	<SubTexture name="RoppuIdle0007" x="783" y="1373" width="753" height="688"/>
+	<SubTexture name="RoppuIdle0008" x="783" y="1373" width="753" height="688"/>
+	<SubTexture name="RoppuIdle0009" x="783" y="1373" width="753" height="688"/>
+	<SubTexture name="RoppuLeft0000" x="4" y="2071" width="771" height="673"/>
+	<SubTexture name="RoppuLeft0001" x="4" y="2071" width="771" height="673"/>
+	<SubTexture name="RoppuLeft0002" x="779" y="2071" width="771" height="673"/>
+	<SubTexture name="RoppuLeft0003" x="783" y="4" width="771" height="673"/>
+	<SubTexture name="RoppuLeft0004" x="783" y="4" width="771" height="673"/>
+	<SubTexture name="RoppuLeft0005" x="783" y="4" width="771" height="673"/>
+	<SubTexture name="RoppuLeft0006" x="783" y="4" width="771" height="673"/>
+	<SubTexture name="RoppuLeft0007" x="783" y="4" width="771" height="673"/>
+	<SubTexture name="RoppuRight0000" x="4" y="4" width="775" height="685"/>
+	<SubTexture name="RoppuRight0001" x="4" y="4" width="775" height="685"/>
+	<SubTexture name="RoppuRight0002" x="4" y="693" width="775" height="685"/>
+	<SubTexture name="RoppuRight0003" x="4" y="1382" width="775" height="685"/>
+	<SubTexture name="RoppuRight0004" x="4" y="1382" width="775" height="685"/>
+	<SubTexture name="RoppuRight0005" x="4" y="1382" width="775" height="685"/>
+	<SubTexture name="RoppuRight0006" x="4" y="1382" width="775" height="685"/>
+	<SubTexture name="RoppuUp0000" x="2311" y="1352" width="751" height="670"/>
+	<SubTexture name="RoppuUp0001" x="2311" y="1352" width="751" height="670"/>
+	<SubTexture name="RoppuUp0002" x="3064" y="4" width="751" height="670"/>
+	<SubTexture name="RoppuUp0003" x="3064" y="678" width="751" height="670"/>
+	<SubTexture name="RoppuUp0004" x="3064" y="678" width="751" height="670"/>
+	<SubTexture name="RoppuUp0005" x="3064" y="678" width="751" height="670"/>
+	<SubTexture name="RoppuUp0006" x="3064" y="678" width="751" height="670"/>
+	<SubTexture name="RoppuUp0007" x="3064" y="678" width="751" height="670"/>
+</TextureAtlas>
