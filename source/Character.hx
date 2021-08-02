@@ -489,20 +489,20 @@ class Character extends FlxSkewedSprite
 
 				animation.addByPrefix('scared', 'BF idle shaking', 24);
 
-				addOffset('idle', -5, 0 + 65); //now you may be wondering,
-				addOffset("singUP", -29, 27 + 65); //why am i manually adding 65 to everything?
-				addOffset("singRIGHT", -38, -7 + 65); //well, you see,
-				addOffset("singLEFT", 12, -6 + 65); //working on this mod for so long
-				addOffset("singDOWN", -10, -50 + 65); //and getting no creative work done outside of it
-				addOffset("singUPmiss", -29, 27 + 65); //has reduced me to a husk of a man
-				addOffset("singRIGHTmiss", -30, 21 + 65); //and i can't even do simple math
-				addOffset("singLEFTmiss", 12, 24 + 65); //without asking google for help
-				addOffset("singDOWNmiss", -11, -19 + 65); //or just doing it this way
-				addOffset("hey", 7, 4 + 65); //and yet the stars haven't aligned
-				addOffset('firstDeath', 37, 11 + 65); //i work on this for forever
-				addOffset('deathLoop', 37, 5 + 65); //and get Nothing back
-				addOffset('deathConfirm', 37, 5 + 65); //if you wanna collab or reach out let me know
-				addOffset('scared', -4, 0 + 65); //because i'm not making it out there on my own
+				addOffset('idle', -5);
+				addOffset("singUP", -29, 27);
+				addOffset("singRIGHT", -38, -7);
+				addOffset("singLEFT", 12, -6);
+				addOffset("singDOWN", -10, -50);
+				addOffset("singUPmiss", -29, 27);
+				addOffset("singRIGHTmiss", -30, 21);
+				addOffset("singLEFTmiss", 12, 24);
+				addOffset("singDOWNmiss", -11, -19);
+				addOffset("hey", 7, 4);
+				addOffset('firstDeath', 37, 11);
+				addOffset('deathLoop', 37, 5);
+				addOffset('deathConfirm', 37, 69);
+				addOffset('scared', -4);
 
 				playAnim('idle');
 
