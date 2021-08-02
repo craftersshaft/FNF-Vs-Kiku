@@ -468,6 +468,46 @@ class Character extends FlxSkewedSprite
 				playAnim('idle');
 
 				flipX = true;
+				
+			case 'scampers':
+				var tex = Paths.getSparrowAtlas('characters/ScampersBoyFriend_Assets');
+				frames = tex;
+				animation.addByPrefix('idle', 'BF idle dance', 24, false);
+				animation.addByPrefix('singUP', 'BF NOTE UP0', 24, false);
+				animation.addByPrefix('singLEFT', 'BF NOTE LEFT0', 24, false);
+				animation.addByPrefix('singRIGHT', 'BF NOTE RIGHT0', 24, false);
+				animation.addByPrefix('singDOWN', 'BF NOTE DOWN0', 24, false);
+				animation.addByPrefix('singUPmiss', 'BF NOTE UP MISS', 24, false);
+				animation.addByPrefix('singLEFTmiss', 'BF NOTE LEFT MISS', 24, false);
+				animation.addByPrefix('singRIGHTmiss', 'BF NOTE RIGHT MISS', 24, false);
+				animation.addByPrefix('singDOWNmiss', 'BF NOTE DOWN MISS', 24, false);
+				animation.addByPrefix('hey', 'BF HEY', 24, false);
+
+				animation.addByPrefix('firstDeath', "BF dies", 24, false);
+				animation.addByPrefix('deathLoop', "BF Dead Loop", 24, true);
+				animation.addByPrefix('deathConfirm', "BF Dead Loop", 12, false);
+
+				animation.addByPrefix('scared', 'BF idle shaking', 24);
+
+				addOffset('idle', -5, 0 + 65); //now you may be wondering,
+				addOffset("singUP", -29, 27 + 65); //why am i manually adding 65 to everything?
+				addOffset("singRIGHT", -38, -7 + 65); //well, you see,
+				addOffset("singLEFT", 12, -6 + 65); //working on this mod for so long
+				addOffset("singDOWN", -10, -50 + 65); //and getting no creative work done outside of it
+				addOffset("singUPmiss", -29, 27 + 65); //has reduced me to a husk of a man
+				addOffset("singRIGHTmiss", -30, 21 + 65); //and i can't even do simple math
+				addOffset("singLEFTmiss", 12, 24 + 65); //without asking google for help
+				addOffset("singDOWNmiss", -11, -19 + 65); //or just doing it this way
+				addOffset("hey", 7, 4 + 65); //and yet the stars haven't aligned
+				addOffset('firstDeath', 37, 11 + 65); //i work on this for forever
+				addOffset('deathLoop', 37, 5 + 65); //and get Nothing back
+				addOffset('deathConfirm', 37, 5 + 65); //if you wanna collab or reach out let me know
+				addOffset('scared', -4, 0 + 65); //because i'm not making it out there on my own
+
+				playAnim('idle');
+
+
+				flipX = true;
 
 			case 'bf-christmas':
 				var tex = Paths.getSparrowAtlas('characters/bfChristmas');
