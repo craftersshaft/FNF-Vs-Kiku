@@ -92,10 +92,7 @@ class OptionsMenu extends MusicBeatState
 		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
 		menuBG.updateHitbox();
 		menuBG.screenCenter();
-		if(FlxG.save.data.antialiasing)
-			{
-				menuBG.antialiasing = true;
-			}
+		menuBG.antialiasing = FlxG.save.data.antialiasing;
 		add(menuBG);
 
 		grpControls = new FlxTypedGroup<Alphabet>();
@@ -125,6 +122,8 @@ class OptionsMenu extends MusicBeatState
 
 		FlxTween.tween(versionShit,{y: FlxG.height - 18},2,{ease: FlxEase.elasticInOut});
 		FlxTween.tween(blackBorder,{y: FlxG.height - 18},2, {ease: FlxEase.elasticInOut});
+		
+		changeSelection();
 
 		super.create();
 	}
