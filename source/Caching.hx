@@ -49,7 +49,10 @@ class Caching extends MusicBeatState
 
 	override function create()
 	{
-
+		#if polymod
+		polymod.Polymod.init({modRoot: "mods", dirs: CoolUtil.coolTextFile(Paths.modlist('modList'))});
+		#end
+		
 		FlxG.save.bind('funkin', 'ninjamuffin99');
 
 		PlayerSettings.init();

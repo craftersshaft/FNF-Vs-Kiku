@@ -70,6 +70,12 @@ class Paths
 	{
 		return getPath('$key.txt', TEXT, library);
 	}
+	
+	inline static public function modlist(key:String)
+	{
+		return 'mods/$key.txt';
+	}
+
 
 	inline static public function xml(key:String, ?library:String)
 	{
