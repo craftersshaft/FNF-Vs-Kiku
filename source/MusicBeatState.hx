@@ -1,6 +1,7 @@
 package;
 
-#if windows
+import flixel.FlxBasic;
+#if desktop
 import Discord.DiscordClient;
 #end
 import flixel.util.FlxColor;
@@ -21,6 +22,26 @@ class MusicBeatState extends FlxUIState
 
 	inline function get_controls():Controls
 		return PlayerSettings.player1.controls;
+
+	private var assets:Array<FlxBasic> = [];
+
+	override function add(Object:flixel.FlxBasic):flixel.FlxBasic
+	{
+		if (FlxG.save.data.optimize)
+			assets.push(Object);
+		return super.add(Object);
+	}
+
+	public function clean()
+	{
+		if (FlxG.save.data.optimize)
+		{
+			for(i in assets)
+			{
+				remove(i);
+			}
+		}
+	}
 
 	override function create()
 	{
@@ -86,11 +107,8 @@ class MusicBeatState extends FlxUIState
 				var step = ((60 / data.bpm) * 1000) / 4;
 				var startInMS = (data.startTime * 1000);
 
-
-				var percent = (Conductor.songPosition - startInMS) / (data.length * 1000);
-
-				curDecimalBeat = data.startBeat + (((Conductor.songPosition/1000) - data.startTime) * (data.bpm / 60));
-				var ste:Int = Math.floor(data.startStep + ((Conductor.songPosition - startInMS) / step));
+				curDecimalBeat = data.startBeat + ((((Conductor.songPosition / 1000) ) - data.startTime) * (data.bpm / 60));
+				var ste:Int = Math.floor(data.startStep + ((Conductor.songPosition ) - startInMS) / step);
 				if (ste >= 0)
 				{
 					if (ste > curStep)
@@ -104,6 +122,7 @@ class MusicBeatState extends FlxUIState
 					}
 					else if (ste < curStep)
 					{
+						trace("reset steps for some reason?? at " + Conductor.songPosition);
 						//Song reset?
 						curStep = ste;
 						updateBeat();
@@ -113,8 +132,8 @@ class MusicBeatState extends FlxUIState
 			}
 			else
 			{
-				curDecimalBeat = (Conductor.songPosition / 1000) * (Conductor.bpm/60);
-				var nextStep:Int = Math.floor(Conductor.songPosition / Conductor.stepCrochet);
+				curDecimalBeat = (((Conductor.songPosition / 1000))) * (Conductor.bpm/60);
+				var nextStep:Int = Math.floor((Conductor.songPosition) / Conductor.stepCrochet);
 				if (nextStep >= 0)
 				{
 					if (nextStep > curStep)
@@ -129,6 +148,7 @@ class MusicBeatState extends FlxUIState
 					else if (nextStep < curStep)
 					{
 						//Song reset?
+						trace("(no bpm change) reset steps for some reason?? at " + Conductor.songPosition);
 						curStep = nextStep;
 						updateBeat();
 						stepHit();
