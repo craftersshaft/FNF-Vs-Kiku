@@ -374,7 +374,7 @@ class Character extends FlxSkewedSprite
 				addOffset("singLEFT", -30);
 				addOffset("singDOWN", -40, -94);
 				playAnim('idle');
-			case 'sour':
+			case 'sour-classic':
 				tex = Paths.getSparrowAtlas('characters/sour');
 				frames = tex;
 				animation.addByPrefix('idle', "Pico Idle Dance", 24);
@@ -401,6 +401,37 @@ class Character extends FlxSkewedSprite
 				playAnim('idle');
 
 				flipX = true;
+
+			case 'sour':
+				tex = Paths.getSparrowAtlas('characters/newsour');
+				frames = tex;
+				animation.addByPrefix('idle', "Pico Idle Dance", 24);
+				animation.addByPrefix('singUP', 'pico Up note', 24, false);
+				animation.addByPrefix('singDOWN', 'Pico Down Note', 24, false);
+				animation.addByPrefix('ugh', 'sourUgh', 24, false);
+				if (isPlayer)
+				{
+					animation.addByPrefix('singLEFT', 'Pico NOTE LEFT', 24, false);
+					animation.addByPrefix('singRIGHT', 'Pico Note Right', 24, false);
+				}
+				else
+				{
+					// Need to be flipped! REDO THIS LATER!
+					animation.addByPrefix('singLEFT', 'Pico Note Right', 24, false);
+					animation.addByPrefix('singRIGHT', 'Pico NOTE LEFT', 24, false);
+				}
+				
+				addOffset('idle');
+				addOffset("singUP", -68, 5);
+				addOffset("singRIGHT", -65, -16);
+				addOffset("singLEFT", -47, -5);
+				addOffset("singDOWN", -29, -42);
+				addOffset("ugh", -35, 0);
+
+				playAnim('idle');
+
+				flipX = true;
+
 
 			case 'jokesour':
 				tex = Paths.getSparrowAtlas('characters/jokesour');

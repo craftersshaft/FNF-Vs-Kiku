@@ -21,12 +21,15 @@ class HealthIcon extends FlxSprite
 		animation.add('bf-christmas', [0, 1], 0, false, isPlayer);
 		animation.add('bf-pixel', [21, 21], 0, false, isPlayer);
 		animation.add('spooky', [2, 3], 0, false, isPlayer);
+		animation.add('kiku-classic', [2, 3], 0, false, isPlayer);
 		animation.add('rudy', [4, 5], 0, false, isPlayer);
+		animation.add('rudy-classic', [4, 5], 0, false, isPlayer);
 		animation.add('randomchance', [6, 7], 0, false, isPlayer);
 		animation.add('stuepid', [6, 7], 0, false, isPlayer);
 		animation.add('kikugh', [8, 9], 0, false, isPlayer);
 		animation.add('dad', [10, 11], 0, false, isPlayer);
 		animation.add('sour', [12, 13], 0, false, isPlayer);
+		animation.add('sour-classic', [12, 13], 0, false, isPlayer);
 		animation.add('jokesour', [12, 13], 0, false, isPlayer);
 		animation.add('senpai', [22, 22], 0, false, isPlayer);
 		animation.add('senpai-angry', [22, 22], 0, false, isPlayer);

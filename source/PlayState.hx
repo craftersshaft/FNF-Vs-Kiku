@@ -271,6 +271,8 @@ class PlayState extends MusicBeatState
 				iconRPC = 'mom';
 			case 'kiku-classic':
 				iconRPC = 'spooky';
+			case 'sour-classic':
+				iconRPC = 'sour';
 			case 'rudy-classic':
 				iconRPC = 'rudy';
 			case 'jokesour':
@@ -424,14 +426,30 @@ class PlayState extends MusicBeatState
 
 				isHalloween = false;
 			}
-			case 'factory': 
+			case 'factory-classic': 
 			{
-				curStage = 'factory';
+				curStage = 'factory-classic';
 				halloweenLevel = true;
 
 				var hallowTex = Paths.getSparrowAtlas('sourbg','week3');
 
 				halloweenBG = new FlxSprite(-285, 50);
+				halloweenBG.frames = hallowTex;
+				halloweenBG.animation.addByPrefix('idle', 'halloweem bg', 20, true);
+				halloweenBG.animation.play('idle');
+				halloweenBG.antialiasing = true;
+				add(halloweenBG);
+
+				isHalloween = false;
+			}
+			case 'factory': 
+			{
+				curStage = 'factory';
+				halloweenLevel = true;
+
+				var hallowTex = Paths.getSparrowAtlas('newsourbg','week3');
+
+				halloweenBG = new FlxSprite(-585, 50);
 				halloweenBG.frames = hallowTex;
 				halloweenBG.animation.addByPrefix('idle', 'halloweem bg', 20, true);
 				halloweenBG.animation.play('idle');
@@ -900,6 +918,10 @@ class PlayState extends MusicBeatState
 			case 'dad':
 				camPos.x += 400;
 			case 'sour':
+				camPos.x += 300;
+				dad.x += 60;
+				dad.y += 90;
+			case 'sour-classic':
 				camPos.x += 400;
 				dad.x -= 47;
 				dad.y += 81;

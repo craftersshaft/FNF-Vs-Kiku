@@ -12,3 +12,4 @@ factory
 jokeplains
 fiend
 snow
+factory-classic
